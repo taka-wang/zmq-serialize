@@ -1,11 +1,16 @@
-# protocol buffer
+# Protocol buffer
 
 ## Setup
 
-node.js package
+#### @node.js package
+
 `npm install protocol-buffers`
 
-golang
+#### @golang
+
 ```
-	./protoc --plugin=protoc-gen-go  --go_out=. type.proto
+go get -u github.com/golang/protobuf/proto
+go get -u github.com/golang/protobuf/protoc-gen-go
+
+./protoc --plugin=protoc-gen-go  --go_out=. type.proto
 ```
