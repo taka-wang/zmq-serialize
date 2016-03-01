@@ -8,12 +8,6 @@ import (
 	"time"
 )
 
-type MbTcpHeader struct {
-	IP   string `json:"ip"`
-	Port int    `json:"port"`
-	ID   int    `json:"id"`
-}
-
 func main() {
 	pub()
 }
