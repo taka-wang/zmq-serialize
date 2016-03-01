@@ -21,8 +21,7 @@ func pub() {
 	defer sender.Close()
 	sender.Connect("ipc:///tmp/dummy")
 
-	//command := &MbTcpHeader{
-	command := MbTcpHeader{
+	command := &MbTcpHeader{
 		IP:   "192.168.1.1",
 		Port: 503,
 		ID:   22,
