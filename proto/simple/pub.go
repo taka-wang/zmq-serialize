@@ -18,9 +18,9 @@ func pub() {
 	sender.Connect("ipc:///tmp/dummy")
 
 	command := &MbTcpHeader{
-		IP:   "192.168.1.1",
+		Ip:   "192.168.1.1",
 		Port: 503,
-		ID:   22,
+		Id:   22,
 	}
 
 	cmd, err := proto.Marshal(command)
