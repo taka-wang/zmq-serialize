@@ -28,9 +28,11 @@ func sub() {
 
 	for {
 		msg, _ := receiver.RecvMessage(0) // frame len: 2
-		var s MbTcpHeader
-		//_, err := s.UnmarshalMsg([]byte(msg[1]))
-		err := json.Unmarshal([]byte(msg[1]), &s) // frame 2
+
+		// decode
+		s := &MbTcpHeader{}
+		err := proto.Unmarshal([]byte(msg[1]), command)
+
 		if err != nil {
 			fmt.Println(err) // unmarshal from json string failed
 		} else {
