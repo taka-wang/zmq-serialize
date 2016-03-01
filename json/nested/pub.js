@@ -4,12 +4,12 @@ var zmq = require('zmq')
     "receiver": "mbtcp",
     "sender":   "restful",        
     "version":   "1",
-    "tid":      22,                
+    "tid":      33,                
     "method":   "mbtcp.once.write",
     
     "ip": "192.168.1.1", 
     "port": 503,
-    "id": 0,
+    "id": 22,
     
     "code":     1,                 
     "register": 2003,             

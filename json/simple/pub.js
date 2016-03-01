@@ -3,7 +3,7 @@ var zmq = require('zmq')
 , command = {
     "ip": "192.168.1.1", 
     "port": 503,
-    "id": 0 
+    "id": 22 
 }
 
 pub.connect("ipc:///tmp/dummy"); // connect to zmq endpoint
