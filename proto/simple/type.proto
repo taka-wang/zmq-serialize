@@ -3,8 +3,8 @@ syntax = "proto3";
 package main;
 
 message MbTcpHeader {
-	string ip = 1;
-	uint32 port  = 2;
-	uint32 id    = 3;
+	string IP = 1;
+	uint32 Port  = 2;
+	uint32 ID    = 3;
 }
 
