@@ -1,7 +1,3 @@
-/*
-	./protoc --plugin=protoc-gen-go  --go_out=. type.proto
-*/
-
 package main
 
 import (

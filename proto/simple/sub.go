@@ -8,12 +8,6 @@ import (
 	_ "time"
 )
 
-type MbTcpHeader struct {
-	IP   string `json:"ip"`
-	Port int    `json:"port"`
-	ID   int    `json:"id"`
-}
-
 func main() {
 	sub()
 }
@@ -31,7 +25,7 @@ func sub() {
 
 		// decode
 		s := &MbTcpHeader{}
-		err := proto.Unmarshal([]byte(msg[1]), command)
+		err := proto.Unmarshal([]byte(msg[1]), s)
 
 		if err != nil {
 			fmt.Println(err) // unmarshal from json string failed
