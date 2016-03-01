@@ -1,0 +1,1 @@
+Struct composition (anonymous field)
