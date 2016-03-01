@@ -10,5 +10,5 @@ pub.connect("ipc:///tmp/dummy"); // connect to zmq endpoint
 
 setInterval(function() {
     pub.send("mbtcp.once.write", zmq.ZMQ_SNDMORE);
-    pub.send(encode(command));
+    pub.send(command);
 }, 1000); // emit every 1 seconds
