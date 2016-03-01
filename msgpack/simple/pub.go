@@ -3,7 +3,7 @@ package main
 import (
 	"bytes"
 	_ "encoding/json"
-	"fmt"
+	_ "fmt"
 	zmq "github.com/taka-wang/zmq3"
 	"github.com/ugorji/go/codec"
 	"time"
