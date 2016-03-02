@@ -24,17 +24,15 @@ int main (int argc, char *argv [])
     
     buf = malloc(len);
     main__mb_tcp_header__pack(&command, buf);
-    //fprintf(stderr, "Writing %d serialized bytes\n", len);
-    //fwrite(buf,len,1,stdout);
 
     zctx_t *context = zctx_new();
     void *publisher = zsocket_new(context, ZMQ_PUB);
     zsocket_connect (publisher, "ipc:///tmp/dummy");
+    
     while (true) {
         printf(".\n");
         zmsg_t *msg = zmsg_new();
         zmsg_addstr(msg, "mbtcp.once.write");         // frame 1
-        //zmsg_addstr(msg, "{\"receiver\": \"core\"}"); // frame 2
         zmsg_addstr(msg, (char*)buf); // frame 2
         zmsg_send(&msg, publisher);
         //zclock_sleep(3 * 1000);
