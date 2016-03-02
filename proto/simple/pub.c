@@ -33,7 +33,7 @@ int main (int argc, char *argv [])
         //zmsg_addstr(msg, (char*)buf); // frame 2
         zmsg_send(&msg, publisher);
         //zclock_sleep(3 * 1000);
-        sleep(3000);
+        sleep(1);
         zmsg_destroy(&msg);
     }
     
