@@ -14,9 +14,9 @@ var (
 )
 
 type MbTcpHeader struct {
-	IP   string `json:"ip"`
+	Ip   string `json:"ip"`
 	Port int    `json:"port"`
-	ID   int    `json:"id"`
+	Id   int    `json:"id"`
 }
 
 func main() {
@@ -29,9 +29,9 @@ func pub() {
 	sender.Connect("ipc:///tmp/dummy")
 
 	command := MbTcpHeader{
-		IP:   "192.168.1.1",
+		Ip:   "192.168.1.1",
 		Port: 503,
-		ID:   22,
+		Id:   22,
 	}
 
 	// pack

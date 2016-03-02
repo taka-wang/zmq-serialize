@@ -8,9 +8,9 @@ import (
 )
 
 type MbTcpHeader struct {
-	IP   string `json:"ip"`
+	Ip   string `json:"ip"`
 	Port int    `json:"port"`
-	ID   int    `json:"id"`
+	Id   int    `json:"id"`
 }
 
 func main() {
