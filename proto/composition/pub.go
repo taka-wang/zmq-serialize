@@ -18,19 +18,19 @@ func pub() {
 	sender.Connect("ipc:///tmp/dummy")
 
 	command := &MbTcpSingleWriteReq{ // named key
-		CmdHeader: CmdHeader{
+		CmdHeader: &CmdHeader{
 			Receiver: "mbtcp",
 			Sender:   "restful",
 			Version:  "1",
 			Tid:      33,
 			Method:   "mbtcp.once.write",
 		},
-		MbTcpHeader: MbTcpHeader{
+		MbTcpHeader: &MbTcpHeader{
 			Ip:   "192.168.1.1",
 			Port: 503,
 			Id:   22,
 		},
-		MbWriteRequest: MbWriteRequest{
+		MbWriteRequest: &MbWriteRequest{
 			Code:     1,
 			Register: 2003,
 			Value:    "1025",
