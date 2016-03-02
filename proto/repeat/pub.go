@@ -17,23 +17,23 @@ func pub() {
 	defer sender.Close()
 	sender.Connect("ipc:///tmp/dummy")
 
-	command := MbTcpMultipleWriteReq{ // named key
-		CmdHeader: CmdHeader{
+	command := &MbTcpMultipleWriteReq{ // named key
+		CmdHeader: &CmdHeader{
 			Receiver: "core",
 			Sender:   "me",
 			Version:  "1",
 			Tid:      32,
 			Method:   "mbtcp.once.write",
 		},
-		MbTcpHeader: MbTcpHeader{
-			IP:   "192.168.1.1",
+		MbTcpHeader: &MbTcpHeader{
+			Ip:   "192.168.1.1",
 			Port: 503,
-			ID:   22,
+			Id:   22,
 		},
 	}
 
 	command.Requests = append(command.Requests,
-		MbWriteRequest{
+		&MbWriteRequest{
 			Code:     1,
 			Register: 2003,
 			Value:    "1025",
@@ -42,7 +42,7 @@ func pub() {
 		},
 	)
 	command.Requests = append(command.Requests,
-		MbWriteRequest{
+		&MbWriteRequest{
 			Code:     1,
 			Register: 2003,
 			Value:    "1025",
