@@ -16,9 +16,9 @@ type CmdHeader struct {
 }
 
 type MbTcpHeader struct {
-	IP   string `json:"ip"`
+	Ip   string `json:"ip"`
 	Port int    `json:"port"`
-	ID   int    `json:"id"`
+	Id   int    `json:"id"`
 }
 
 type MbWriteRequest struct {
