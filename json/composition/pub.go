@@ -30,9 +30,9 @@ type MbWriteRequest struct {
 }
 
 type MbTcpSingleWriteReq struct {
-	CmdHeader
-	MbTcpHeader
-	MbWriteRequest
+	CmdHeader      `json:"cmd_header"`
+	MbTcpHeader    `json:"mb_tcp_header"`
+	MbWriteRequest `json:"mb_write_request"`
 }
 
 func main() {
