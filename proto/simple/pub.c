@@ -19,13 +19,14 @@ int main (int argc, char *argv [])
     len = main__mb_tcp_header__get_packed_size(&command);
     buf = malloc(len);
     main__mb_tcp_header__pack(&command, buf);
-    fprintf(stderr, "Writing %d serialized bytes\n", len);
-    fwrite(buf,len,1,stdout);
+    //fprintf(stderr, "Writing %d serialized bytes\n", len);
+    //fwrite(buf,len,1,stdout);
 
     zctx_t *context = zctx_new();
     void *publisher = zsocket_new(context, ZMQ_PUB);
     zsocket_bind (publisher, "ipc:///tmp/dummy");
     while (true) {
+        printf(".\n");
         zmsg_t *msg = zmsg_new();
         zmsg_addstr(msg, "mbtcp.once.write");         // frame 1
         zmsg_addstr(msg, (char*)buf); // frame 2
