@@ -18,7 +18,7 @@
     sudo ldconfig
     #sudo ln -sf /usr/local/lib/libzmq.so /usr/lib/libzmq.so
   
-##### Install node.js 4.x & zmq binding
+#### Install node.js 4.x & zmq binding
 
     curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
     sudo apt-get install -y nodejs
