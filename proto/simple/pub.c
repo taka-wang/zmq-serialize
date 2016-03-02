@@ -29,7 +29,7 @@ int main (int argc, char *argv [])
         printf(".\n");
         zmsg_t *msg = zmsg_new();
         zmsg_addstr(msg, "mbtcp.once.write");         // frame 1
-        zmsg_addstr(msg, (char*)buf); // frame 2
+        //zmsg_addstr(msg, (char*)buf); // frame 2
         zmsg_send(&msg, publisher);
         //zclock_sleep(3 * 1000);
         sleep(3000);
