@@ -9,6 +9,6 @@ sub.subscribe("mbtcp"); 			// filter topic
 
 sub.on("message", function(method, payload) {
     console.log(method.toString());
-    var obj = messages.MbTcpSingleWriteReq.decode(payload); //decode
+    var obj = messages.MbTcpMultipleWriteReq.decode(payload); //decode
     console.dir(obj);
 });

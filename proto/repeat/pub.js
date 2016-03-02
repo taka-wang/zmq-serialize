@@ -33,7 +33,7 @@ var zmq = require('zmq')
         }
     ]
 }
-, buf = messages.MbTcpSingleWriteReq.encode(command); // encode
+, buf = messages.MbTcpMultipleWriteReq.encode(command); // encode
 
 pub.connect("ipc:///tmp/dummy"); // connect to zmq endpoint
 
