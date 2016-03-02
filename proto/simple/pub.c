@@ -1,4 +1,4 @@
-// compile: gcc pub.c type.pb-c.c -lzmq -lczmq  -o pub
+// compile: gcc type.pb-c.h type.pb-c.c pub.c -lzmq -lczmq -lprotobuf-c  -o pubc
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -19,6 +19,7 @@ int main (int argc, char *argv [])
     buf = malloc(len);
     main__mb_tcp_header__pack(&command, buf);
     fprintf(stderr, "Writing %d serialized bytes\n", len);
+    fwrite(buf,len,1,stdout);
 
     zctx_t *context = zctx_new();
     void *publisher = zsocket_new(context, ZMQ_PUB);
