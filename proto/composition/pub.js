@@ -6,7 +6,7 @@ var zmq = require('zmq')
 , command = {
     "receiver": "mbtcp",
     "sender":   "restful",        
-    "version":   "1",
+    "version":  "1",
     "tid":      33,                
     "method":   "mbtcp.once.write",
     
