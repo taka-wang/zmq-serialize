@@ -13,11 +13,15 @@ int main (int argc, char *argv [])
     void *buf;                     // Buffer to store serialized data
     unsigned len;
 
-    
+    command.has_port = 1;
+    command.has_id = 1;
+
+    command.ip = "192.168.1.1";
     command.port = 503;
     command.id = 22;
-    command.ip = "192.168.1.1";
+    
     len = main__mb_tcp_header__get_packed_size(&command);
+    
     buf = malloc(len);
     main__mb_tcp_header__pack(&command, buf);
     //fprintf(stderr, "Writing %d serialized bytes\n", len);
