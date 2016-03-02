@@ -13,12 +13,6 @@ var (
 	mh = &codec.MsgpackHandle{RawToString: true}
 )
 
-type MbTcpHeader struct {
-	Ip   string `json:"ip"`
-	Port int    `json:"port"`
-	Id   int    `json:"id"`
-}
-
 func main() {
 	pub()
 }
