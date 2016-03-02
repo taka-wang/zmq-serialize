@@ -30,7 +30,7 @@ message MbTcpSingleWriteReq {
     MbWriteRequest	mb_write_request	= 3;
 }
 
-message MbTcpMultipleWriteReq struct {
+message MbTcpMultipleWriteReq {
     CmdHeader       cmd_header          = 1;
     MbTcpHeader     mb_tcp_header       = 2;
     repeated MbWriteRequest requests    = 3;
