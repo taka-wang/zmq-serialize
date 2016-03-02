@@ -24,11 +24,12 @@ int main (int argc, char *argv [])
 
     zctx_t *context = zctx_new();
     void *publisher = zsocket_new(context, ZMQ_PUB);
-    zsocket_bind (publisher, "ipc:///tmp/dummy");
+    zsocket_connect (publisher, "ipc:///tmp/dummy");
     while (true) {
         printf(".\n");
         zmsg_t *msg = zmsg_new();
         zmsg_addstr(msg, "mbtcp.once.write");         // frame 1
+        zmsg_addstr(msg, "{\"receiver\": \"core\"}"); // frame 2
         //zmsg_addstr(msg, (char*)buf); // frame 2
         zmsg_send(&msg, publisher);
         //zclock_sleep(3 * 1000);
