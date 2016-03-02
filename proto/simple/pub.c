@@ -8,7 +8,7 @@
 int main (int argc, char *argv [])
 {
 
-    MbTcpHeader command = MAIN__MB_TCP_HEADER__INIT; // construct
+    Main__MbTcpHeader command = MAIN__MB_TCP_HEADER__INIT; // construct
     void *buf;                     // Buffer to store serialized data
     unsigned len;
 
