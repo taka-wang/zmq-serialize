@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package main;
+
+message CmdHeader {
+    string receiver = 1;   // receiver
+    string sender   = 2;   // sender
+    string version  = 3;   // protocol version
+    uint64 tid      = 4;
+    string method   = 5;   // command name
+}
+
+message MbTcpHeader {
+	string ip    = 1;
+	uint32 port  = 2;
+	uint32 id    = 3;
+}
+
+message MbWriteRequest {
+    uint32 code     = 1;    // modbus function code
+    uint32 register = 2;    // register start address
+    string value    = 3;    // data value
+    string type     = 4;    // data type
+    string alias    = 5;    // human friendly name
+}
+
+message MbTcpSingleWriteReq {
+    CmdHeader		cmd_header			= 1;
+    MbTcpHeader		mb_tcp_header		= 2;
+    MbWriteRequest	mb_write_request	= 3;
+}
+
+message MbTcpMultipleWriteReq struct {
+    CmdHeader       cmd_header          = 1;
+    MbTcpHeader     mb_tcp_header       = 2;
+    repeated MbWriteRequest requests    = 3;
+}
