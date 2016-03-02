@@ -1,16 +1,18 @@
 var zmq = require('zmq')
 , pub = zmq.socket('pub')
 , command = {
-    "receiver": "mbtcp",
-    "sender":   "restful",        
-    "version":   "1",
-    "tid":      22,                
-    "method":   "mbtcp.once.write",
-    
-    "ip": "192.168.1.1", 
-    "port": 503,
-    "id": 0,
-    
+    "cmd_header":{
+        "receiver": "mbtcp",
+        "sender":   "restful",        
+        "version":  "1",
+        "tid":      33,                
+        "method":   "mbtcp.once.write"
+    },
+    "mb_tcp_header":{
+        "ip": "192.168.1.1", 
+        "port": 503,
+        "id": 22
+    },
     "requests": [ 
         {
             "code":     1,                 
