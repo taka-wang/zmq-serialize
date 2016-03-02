@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include "type.pb-c.h"
 #include <czmq.h>
+#include <unistd.h>
 
 int main (int argc, char *argv [])
 {
@@ -29,7 +30,8 @@ int main (int argc, char *argv [])
         zmsg_addstr(msg, "mbtcp.once.write");         // frame 1
         zmsg_addstr(msg, (char*)buf); // frame 2
         zmsg_send(&msg, publisher);
-        zclock_sleep(3 * 1000);
+        //zclock_sleep(3 * 1000);
+        sleep(3000);
         zmsg_destroy(&msg);
     }
     
