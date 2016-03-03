@@ -1,6 +1,6 @@
 # ZMQ Serialize
 
-**Serial/Deserialize with Json/Msgpack/Protocol buffer**
+Serialize/Deserialize with Json/Msgpack/Protocol buffer
 
 ## Setup
 
