@@ -10,6 +10,7 @@
 static volatile int do_loop = 1;
 
 void intHandler(int dummy) {
+    printf("got it\n");
     do_loop = 0;
 }
 
