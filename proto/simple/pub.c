@@ -25,10 +25,6 @@ void sig_handler(int signo)
 
 int main (int argc, char *argv [])
 {
-    if (signal(SIGINT, sig_handler) == SIG_ERR) {
-        printf("\ncan't catch SIGINT\n");
-    }
-
     //signal(SIGINT, intHandler); // handle ctrl+c
 
     void *buf;                     // Buffer to store serialized data
@@ -52,13 +48,14 @@ int main (int argc, char *argv [])
     void *publisher = zsocket_new(context, ZMQ_PUB);
     zsocket_connect (publisher, "ipc:///tmp/dummy");
     
-    while (do_loop) {
+    while (!zctx_interrupted) {
         zmsg_t *msg = zmsg_new();
         zmsg_addstr(msg, "mbtcp.once.write");         // frame 1
         zmsg_addstr(msg, (char*)buf); // frame 2
         zmsg_send(&msg, publisher);
         //zclock_sleep(3 * 1000);
-        sleep(3);
+        //sleep(3);
+        zclock_sleep(1000);
         zmsg_destroy(&msg);
     }
     
