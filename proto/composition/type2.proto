@@ -3,7 +3,7 @@ syntax = "proto2";
 message CmdHeader {
     required string receiver = 1;   // receiver
     required string sender   = 2;   // sender
-    required string version  = 3;   // protocol version
+    required uint32 version  = 3;   // protocol version
     required uint64 tid      = 4;
     required string method   = 5;   // command name
 }
@@ -24,6 +24,6 @@ message MbWriteRequest {
 
 message MbTcpSingleWriteReq {
     required CmdHeader		cmd_header			= 1;
-    required MbTcpHeader		mb_tcp_header		= 2;
+    required MbTcpHeader	mb_tcp_header		= 2;
     required MbWriteRequest	mb_write_request	= 3;
 }

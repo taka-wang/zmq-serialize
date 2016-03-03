@@ -13,17 +13,18 @@ int main (int argc, char *argv [])
     void *buf; // Buffer to store serialized data
     unsigned len;
 
-    Main__MbTcpHeader command = MAIN__MB_TCP_HEADER__INIT; // construct
+    // initialize
+    CmdHeader cmd_header = CMD_HEADER__INIT;
+    MbTcpHeader mb_tcp_header = MB_TCP_HEADER__INIT;
+    MbWriteRequest mb_write_request = MB_WRITE_REQUEST__INIT;
+    MbTcpSingleWriteReq command = MB_TCP_SINGLE_WRITE_REQ__INIT;
 
-    Main__CmdHeader
-    Main__MbTcpHeader
-    Main__MbWriteRequest
-    Main__MbTcpSingleWriteReq
-
-    MAIN__CMD_HEADER__INIT
-    MAIN__MB_TCP_HEADER__INIT
-    MAIN__MB_WRITE_REQUEST__INIT
-    MAIN__MB_TCP_SINGLE_WRITE_REQ__INIT
+    cmd_header.receiver = "mbtcp";
+    cmd_header.sender   = "restful";
+    cmd_header.version  = "mbtcp";
+    cmd_header.tid      = "mbtcp";
+    cmd_header.method   = "mbtcp";
+    //TODO!!!!
 
     //command.has_port = 1;
     //command.has_id = 1;

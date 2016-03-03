@@ -5,7 +5,7 @@ package main;
 message CmdHeader {
     string receiver = 1;   // receiver
     string sender   = 2;   // sender
-    string version  = 3;   // protocol version
+    uint32 version  = 3;   // protocol version
     uint64 tid      = 4;
     string method   = 5;   // command name
 }

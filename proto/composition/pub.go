@@ -21,7 +21,7 @@ func pub() {
 		CmdHeader: &CmdHeader{
 			Receiver: "mbtcp",
 			Sender:   "restful",
-			Version:  "1",
+			Version:  1,
 			Tid:      33,
 			Method:   "mbtcp.once.write",
 		},
