@@ -1,7 +1,3 @@
-syntax = "proto2";
-
-package main;
-
 message MbTcpHeader {
 	required string ip    = 1;
 	required uint32 port  = 2;
