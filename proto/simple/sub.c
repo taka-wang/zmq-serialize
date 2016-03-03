@@ -20,9 +20,7 @@ int main (int argc, char *argv [])
         printf("method: %s\n", first_buffer);
         //printf("payload: %s\n", payload_buffer);
 
-
-
-        //--
+        // unpack
         Main__MbTcpHeader *command;
         unsigned len = zframe_size(payload);
 
@@ -30,14 +28,9 @@ int main (int argc, char *argv [])
         
         if (command == NULL) {
             fprintf(stderr, "error unpacking incoming message\n");
-            exit(1);
+            break;
         }
-        printf("Received: port=%d", command->port);  // required field
-
-
-
-
-
+        printf("Recv: ip: %s, port: %d, id: %d\n", command->ip, command->port, command->id);
 
         //zmsg_dump(msg);
         zframe_destroy(&first);
