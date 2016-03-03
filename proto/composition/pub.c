@@ -21,21 +21,27 @@ int main (int argc, char *argv [])
 
     cmd_header.receiver = "mbtcp";
     cmd_header.sender   = "restful";
-    cmd_header.version  = "mbtcp";
-    cmd_header.tid      = "mbtcp";
-    cmd_header.method   = "mbtcp";
-    //TODO!!!!
+    cmd_header.version  = 1;
+    cmd_header.tid      = 33;
+    cmd_header.method   = "mbtcp.once.write";
+    
+    mb_tcp_header.ip    = "192.168.1.1";
+    mb_tcp_header.port  = 503;
+    mb_tcp_header.id    = 22;
+    
+    mb_write_request.code       = 1;
+    mb_write_request.register   = 2003;
+    mb_write_request.value      = "1025";
+    mb_write_request.type       = "int64";
+    mb_write_request.alias      = "hello";
 
-    //command.has_port = 1;
-    //command.has_id = 1;
-    command.ip = "192.168.1.1";
-    command.port = 503;
-    command.id = 22;
-    
-    len = main__mb_tcp_header__get_packed_size(&command);
-    
-    buf = malloc(len);
-    main__mb_tcp_header__pack(&command, buf);
+    command.cmd_header  = &cmd_header;
+    command.mb_tcp_header  = &mb_tcp_header;
+    command.mb_write_request  = &mb_write_request;
+
+    len = mb_tcp_single_write_req__get_packed_size (&command);
+    buf = malloc (len);                     // Allocate memory
+    mb_tcp_single_write_req__pack (&command, buf);
 
     zctx_t *context = zctx_new();
     void *publisher = zsocket_new(context, ZMQ_PUB);
