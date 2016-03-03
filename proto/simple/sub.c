@@ -20,12 +20,20 @@ int main (int argc, char *argv [])
         printf("method: %s\n", first_buffer);
         //printf("payload: %s\n", payload_buffer);
 
-        uint8_t buffer = zframe_get_uint8(payload);
-        printf("%u\n", buffer);
+
 
         //--
-        //Main__MbTcpHeader *command;
-        //command = amessage__unpack(NULL, msg_len, buf);
+        Main__MbTcpHeader *command;
+        unsigned len = zframe_size(payload);
+
+        command = main__mb_tcp_header__unpack(NULL, len, payload_buffer);
+        
+        if (command == NULL) {
+            fprintf(stderr, "error unpacking incoming message\n");
+            exit(1);
+        }
+        printf("Received: port=%d",msg->port);  // required field
+
 
 
 
