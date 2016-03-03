@@ -1,0 +1,31 @@
+syntax = "proto2";
+
+package main;
+
+message CmdHeader {
+    required string receiver = 1;   // receiver
+    required string sender   = 2;   // sender
+    required string version  = 3;   // protocol version
+    required uint64 tid      = 4;
+    required string method   = 5;   // command name
+}
+
+message MbTcpHeader {
+	required string ip    = 1;
+	required uint32 port  = 2;
+	required uint32 id    = 3;
+}
+
+message MbWriteRequest {
+    required uint32 code     = 1;    // modbus function code
+    required uint32 register = 2;    // register start address
+    required string value    = 3;    // data value
+    required string type     = 4;    // data type
+    required string alias    = 5;    // human friendly name
+}
+
+message MbTcpSingleWriteReq {
+    required CmdHeader		cmd_header			= 1;
+    required MbTcpHeader		mb_tcp_header		= 2;
+    required MbWriteRequest	mb_write_request	= 3;
+}
