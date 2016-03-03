@@ -18,7 +18,18 @@ int main (int argc, char *argv [])
         char *first_buffer = zframe_strdup(first);
         char *payload_buffer = zframe_strdup(payload);
         printf("method: %s\n", first_buffer);
-        printf("payload: %s\n", payload_buffer);
+        //printf("payload: %s\n", payload_buffer);
+
+        uint8_t buffer = zframe_get_uint8(payload);
+        printf("%u\n", buffer);
+
+        //--
+        //Main__MbTcpHeader *command;
+        //command = amessage__unpack(NULL, msg_len, buf);
+
+
+
+
 
         //zmsg_dump(msg);
         zframe_destroy(&first);
