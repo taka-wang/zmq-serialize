@@ -15,10 +15,10 @@ PROTOBUF_C__BEGIN_DECLS
 #endif
 
 
-typedef struct _Main__CmdHeader Main__CmdHeader;
-typedef struct _Main__MbTcpHeader Main__MbTcpHeader;
-typedef struct _Main__MbWriteRequest Main__MbWriteRequest;
-typedef struct _Main__MbTcpSingleWriteReq Main__MbTcpSingleWriteReq;
+typedef struct _CmdHeader CmdHeader;
+typedef struct _MbTcpHeader MbTcpHeader;
+typedef struct _MbWriteRequest MbWriteRequest;
+typedef struct _MbTcpSingleWriteReq MbTcpSingleWriteReq;
 
 
 /* --- enums --- */
@@ -26,7 +26,7 @@ typedef struct _Main__MbTcpSingleWriteReq Main__MbTcpSingleWriteReq;
 
 /* --- messages --- */
 
-struct  _Main__CmdHeader
+struct  _CmdHeader
 {
   ProtobufCMessage base;
   /*
@@ -47,24 +47,24 @@ struct  _Main__CmdHeader
    */
   char *method;
 };
-#define MAIN__CMD_HEADER__INIT \
- { PROTOBUF_C_MESSAGE_INIT (&main__cmd_header__descriptor) \
+#define CMD_HEADER__INIT \
+ { PROTOBUF_C_MESSAGE_INIT (&cmd_header__descriptor) \
     , NULL, NULL, NULL, 0, NULL }
 
 
-struct  _Main__MbTcpHeader
+struct  _MbTcpHeader
 {
   ProtobufCMessage base;
   char *ip;
   uint32_t port;
   uint32_t id;
 };
-#define MAIN__MB_TCP_HEADER__INIT \
- { PROTOBUF_C_MESSAGE_INIT (&main__mb_tcp_header__descriptor) \
+#define MB_TCP_HEADER__INIT \
+ { PROTOBUF_C_MESSAGE_INIT (&mb_tcp_header__descriptor) \
     , NULL, 0, 0 }
 
 
-struct  _Main__MbWriteRequest
+struct  _MbWriteRequest
 {
   ProtobufCMessage base;
   /*
@@ -88,112 +88,112 @@ struct  _Main__MbWriteRequest
    */
   char *alias;
 };
-#define MAIN__MB_WRITE_REQUEST__INIT \
- { PROTOBUF_C_MESSAGE_INIT (&main__mb_write_request__descriptor) \
+#define MB_WRITE_REQUEST__INIT \
+ { PROTOBUF_C_MESSAGE_INIT (&mb_write_request__descriptor) \
     , 0, 0, NULL, NULL, NULL }
 
 
-struct  _Main__MbTcpSingleWriteReq
+struct  _MbTcpSingleWriteReq
 {
   ProtobufCMessage base;
-  Main__CmdHeader *cmd_header;
-  Main__MbTcpHeader *mb_tcp_header;
-  Main__MbWriteRequest *mb_write_request;
+  CmdHeader *cmd_header;
+  MbTcpHeader *mb_tcp_header;
+  MbWriteRequest *mb_write_request;
 };
-#define MAIN__MB_TCP_SINGLE_WRITE_REQ__INIT \
- { PROTOBUF_C_MESSAGE_INIT (&main__mb_tcp_single_write_req__descriptor) \
+#define MB_TCP_SINGLE_WRITE_REQ__INIT \
+ { PROTOBUF_C_MESSAGE_INIT (&mb_tcp_single_write_req__descriptor) \
     , NULL, NULL, NULL }
 
 
-/* Main__CmdHeader methods */
-void   main__cmd_header__init
-                     (Main__CmdHeader         *message);
-size_t main__cmd_header__get_packed_size
-                     (const Main__CmdHeader   *message);
-size_t main__cmd_header__pack
-                     (const Main__CmdHeader   *message,
+/* CmdHeader methods */
+void   cmd_header__init
+                     (CmdHeader         *message);
+size_t cmd_header__get_packed_size
+                     (const CmdHeader   *message);
+size_t cmd_header__pack
+                     (const CmdHeader   *message,
                       uint8_t             *out);
-size_t main__cmd_header__pack_to_buffer
-                     (const Main__CmdHeader   *message,
+size_t cmd_header__pack_to_buffer
+                     (const CmdHeader   *message,
                       ProtobufCBuffer     *buffer);
-Main__CmdHeader *
-       main__cmd_header__unpack
+CmdHeader *
+       cmd_header__unpack
                      (ProtobufCAllocator  *allocator,
                       size_t               len,
                       const uint8_t       *data);
-void   main__cmd_header__free_unpacked
-                     (Main__CmdHeader *message,
+void   cmd_header__free_unpacked
+                     (CmdHeader *message,
                       ProtobufCAllocator *allocator);
-/* Main__MbTcpHeader methods */
-void   main__mb_tcp_header__init
-                     (Main__MbTcpHeader         *message);
-size_t main__mb_tcp_header__get_packed_size
-                     (const Main__MbTcpHeader   *message);
-size_t main__mb_tcp_header__pack
-                     (const Main__MbTcpHeader   *message,
+/* MbTcpHeader methods */
+void   mb_tcp_header__init
+                     (MbTcpHeader         *message);
+size_t mb_tcp_header__get_packed_size
+                     (const MbTcpHeader   *message);
+size_t mb_tcp_header__pack
+                     (const MbTcpHeader   *message,
                       uint8_t             *out);
-size_t main__mb_tcp_header__pack_to_buffer
-                     (const Main__MbTcpHeader   *message,
+size_t mb_tcp_header__pack_to_buffer
+                     (const MbTcpHeader   *message,
                       ProtobufCBuffer     *buffer);
-Main__MbTcpHeader *
-       main__mb_tcp_header__unpack
+MbTcpHeader *
+       mb_tcp_header__unpack
                      (ProtobufCAllocator  *allocator,
                       size_t               len,
                       const uint8_t       *data);
-void   main__mb_tcp_header__free_unpacked
-                     (Main__MbTcpHeader *message,
+void   mb_tcp_header__free_unpacked
+                     (MbTcpHeader *message,
                       ProtobufCAllocator *allocator);
-/* Main__MbWriteRequest methods */
-void   main__mb_write_request__init
-                     (Main__MbWriteRequest         *message);
-size_t main__mb_write_request__get_packed_size
-                     (const Main__MbWriteRequest   *message);
-size_t main__mb_write_request__pack
-                     (const Main__MbWriteRequest   *message,
+/* MbWriteRequest methods */
+void   mb_write_request__init
+                     (MbWriteRequest         *message);
+size_t mb_write_request__get_packed_size
+                     (const MbWriteRequest   *message);
+size_t mb_write_request__pack
+                     (const MbWriteRequest   *message,
                       uint8_t             *out);
-size_t main__mb_write_request__pack_to_buffer
-                     (const Main__MbWriteRequest   *message,
+size_t mb_write_request__pack_to_buffer
+                     (const MbWriteRequest   *message,
                       ProtobufCBuffer     *buffer);
-Main__MbWriteRequest *
-       main__mb_write_request__unpack
+MbWriteRequest *
+       mb_write_request__unpack
                      (ProtobufCAllocator  *allocator,
                       size_t               len,
                       const uint8_t       *data);
-void   main__mb_write_request__free_unpacked
-                     (Main__MbWriteRequest *message,
+void   mb_write_request__free_unpacked
+                     (MbWriteRequest *message,
                       ProtobufCAllocator *allocator);
-/* Main__MbTcpSingleWriteReq methods */
-void   main__mb_tcp_single_write_req__init
-                     (Main__MbTcpSingleWriteReq         *message);
-size_t main__mb_tcp_single_write_req__get_packed_size
-                     (const Main__MbTcpSingleWriteReq   *message);
-size_t main__mb_tcp_single_write_req__pack
-                     (const Main__MbTcpSingleWriteReq   *message,
+/* MbTcpSingleWriteReq methods */
+void   mb_tcp_single_write_req__init
+                     (MbTcpSingleWriteReq         *message);
+size_t mb_tcp_single_write_req__get_packed_size
+                     (const MbTcpSingleWriteReq   *message);
+size_t mb_tcp_single_write_req__pack
+                     (const MbTcpSingleWriteReq   *message,
                       uint8_t             *out);
-size_t main__mb_tcp_single_write_req__pack_to_buffer
-                     (const Main__MbTcpSingleWriteReq   *message,
+size_t mb_tcp_single_write_req__pack_to_buffer
+                     (const MbTcpSingleWriteReq   *message,
                       ProtobufCBuffer     *buffer);
-Main__MbTcpSingleWriteReq *
-       main__mb_tcp_single_write_req__unpack
+MbTcpSingleWriteReq *
+       mb_tcp_single_write_req__unpack
                      (ProtobufCAllocator  *allocator,
                       size_t               len,
                       const uint8_t       *data);
-void   main__mb_tcp_single_write_req__free_unpacked
-                     (Main__MbTcpSingleWriteReq *message,
+void   mb_tcp_single_write_req__free_unpacked
+                     (MbTcpSingleWriteReq *message,
                       ProtobufCAllocator *allocator);
 /* --- per-message closures --- */
 
-typedef void (*Main__CmdHeader_Closure)
-                 (const Main__CmdHeader *message,
+typedef void (*CmdHeader_Closure)
+                 (const CmdHeader *message,
                   void *closure_data);
-typedef void (*Main__MbTcpHeader_Closure)
-                 (const Main__MbTcpHeader *message,
+typedef void (*MbTcpHeader_Closure)
+                 (const MbTcpHeader *message,
                   void *closure_data);
-typedef void (*Main__MbWriteRequest_Closure)
-                 (const Main__MbWriteRequest *message,
+typedef void (*MbWriteRequest_Closure)
+                 (const MbWriteRequest *message,
                   void *closure_data);
-typedef void (*Main__MbTcpSingleWriteReq_Closure)
-                 (const Main__MbTcpSingleWriteReq *message,
+typedef void (*MbTcpSingleWriteReq_Closure)
+                 (const MbTcpSingleWriteReq *message,
                   void *closure_data);
 
 /* --- services --- */
@@ -201,10 +201,10 @@ typedef void (*Main__MbTcpSingleWriteReq_Closure)
 
 /* --- descriptors --- */
 
-extern const ProtobufCMessageDescriptor main__cmd_header__descriptor;
-extern const ProtobufCMessageDescriptor main__mb_tcp_header__descriptor;
-extern const ProtobufCMessageDescriptor main__mb_write_request__descriptor;
-extern const ProtobufCMessageDescriptor main__mb_tcp_single_write_req__descriptor;
+extern const ProtobufCMessageDescriptor cmd_header__descriptor;
+extern const ProtobufCMessageDescriptor mb_tcp_header__descriptor;
+extern const ProtobufCMessageDescriptor mb_write_request__descriptor;
+extern const ProtobufCMessageDescriptor mb_tcp_single_write_req__descriptor;
 
 PROTOBUF_C__END_DECLS
 

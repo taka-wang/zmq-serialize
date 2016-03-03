@@ -7,179 +7,179 @@
 #endif
 
 #include "type2.pb-c.h"
-void   main__cmd_header__init
-                     (Main__CmdHeader         *message)
+void   cmd_header__init
+                     (CmdHeader         *message)
 {
-  static Main__CmdHeader init_value = MAIN__CMD_HEADER__INIT;
+  static CmdHeader init_value = CMD_HEADER__INIT;
   *message = init_value;
 }
-size_t main__cmd_header__get_packed_size
-                     (const Main__CmdHeader *message)
+size_t cmd_header__get_packed_size
+                     (const CmdHeader *message)
 {
-  assert(message->base.descriptor == &main__cmd_header__descriptor);
+  assert(message->base.descriptor == &cmd_header__descriptor);
   return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
 }
-size_t main__cmd_header__pack
-                     (const Main__CmdHeader *message,
+size_t cmd_header__pack
+                     (const CmdHeader *message,
                       uint8_t       *out)
 {
-  assert(message->base.descriptor == &main__cmd_header__descriptor);
+  assert(message->base.descriptor == &cmd_header__descriptor);
   return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
 }
-size_t main__cmd_header__pack_to_buffer
-                     (const Main__CmdHeader *message,
+size_t cmd_header__pack_to_buffer
+                     (const CmdHeader *message,
                       ProtobufCBuffer *buffer)
 {
-  assert(message->base.descriptor == &main__cmd_header__descriptor);
+  assert(message->base.descriptor == &cmd_header__descriptor);
   return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
 }
-Main__CmdHeader *
-       main__cmd_header__unpack
+CmdHeader *
+       cmd_header__unpack
                      (ProtobufCAllocator  *allocator,
                       size_t               len,
                       const uint8_t       *data)
 {
-  return (Main__CmdHeader *)
-     protobuf_c_message_unpack (&main__cmd_header__descriptor,
+  return (CmdHeader *)
+     protobuf_c_message_unpack (&cmd_header__descriptor,
                                 allocator, len, data);
 }
-void   main__cmd_header__free_unpacked
-                     (Main__CmdHeader *message,
+void   cmd_header__free_unpacked
+                     (CmdHeader *message,
                       ProtobufCAllocator *allocator)
 {
-  assert(message->base.descriptor == &main__cmd_header__descriptor);
+  assert(message->base.descriptor == &cmd_header__descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
-void   main__mb_tcp_header__init
-                     (Main__MbTcpHeader         *message)
+void   mb_tcp_header__init
+                     (MbTcpHeader         *message)
 {
-  static Main__MbTcpHeader init_value = MAIN__MB_TCP_HEADER__INIT;
+  static MbTcpHeader init_value = MB_TCP_HEADER__INIT;
   *message = init_value;
 }
-size_t main__mb_tcp_header__get_packed_size
-                     (const Main__MbTcpHeader *message)
+size_t mb_tcp_header__get_packed_size
+                     (const MbTcpHeader *message)
 {
-  assert(message->base.descriptor == &main__mb_tcp_header__descriptor);
+  assert(message->base.descriptor == &mb_tcp_header__descriptor);
   return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
 }
-size_t main__mb_tcp_header__pack
-                     (const Main__MbTcpHeader *message,
+size_t mb_tcp_header__pack
+                     (const MbTcpHeader *message,
                       uint8_t       *out)
 {
-  assert(message->base.descriptor == &main__mb_tcp_header__descriptor);
+  assert(message->base.descriptor == &mb_tcp_header__descriptor);
   return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
 }
-size_t main__mb_tcp_header__pack_to_buffer
-                     (const Main__MbTcpHeader *message,
+size_t mb_tcp_header__pack_to_buffer
+                     (const MbTcpHeader *message,
                       ProtobufCBuffer *buffer)
 {
-  assert(message->base.descriptor == &main__mb_tcp_header__descriptor);
+  assert(message->base.descriptor == &mb_tcp_header__descriptor);
   return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
 }
-Main__MbTcpHeader *
-       main__mb_tcp_header__unpack
+MbTcpHeader *
+       mb_tcp_header__unpack
                      (ProtobufCAllocator  *allocator,
                       size_t               len,
                       const uint8_t       *data)
 {
-  return (Main__MbTcpHeader *)
-     protobuf_c_message_unpack (&main__mb_tcp_header__descriptor,
+  return (MbTcpHeader *)
+     protobuf_c_message_unpack (&mb_tcp_header__descriptor,
                                 allocator, len, data);
 }
-void   main__mb_tcp_header__free_unpacked
-                     (Main__MbTcpHeader *message,
+void   mb_tcp_header__free_unpacked
+                     (MbTcpHeader *message,
                       ProtobufCAllocator *allocator)
 {
-  assert(message->base.descriptor == &main__mb_tcp_header__descriptor);
+  assert(message->base.descriptor == &mb_tcp_header__descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
-void   main__mb_write_request__init
-                     (Main__MbWriteRequest         *message)
+void   mb_write_request__init
+                     (MbWriteRequest         *message)
 {
-  static Main__MbWriteRequest init_value = MAIN__MB_WRITE_REQUEST__INIT;
+  static MbWriteRequest init_value = MB_WRITE_REQUEST__INIT;
   *message = init_value;
 }
-size_t main__mb_write_request__get_packed_size
-                     (const Main__MbWriteRequest *message)
+size_t mb_write_request__get_packed_size
+                     (const MbWriteRequest *message)
 {
-  assert(message->base.descriptor == &main__mb_write_request__descriptor);
+  assert(message->base.descriptor == &mb_write_request__descriptor);
   return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
 }
-size_t main__mb_write_request__pack
-                     (const Main__MbWriteRequest *message,
+size_t mb_write_request__pack
+                     (const MbWriteRequest *message,
                       uint8_t       *out)
 {
-  assert(message->base.descriptor == &main__mb_write_request__descriptor);
+  assert(message->base.descriptor == &mb_write_request__descriptor);
   return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
 }
-size_t main__mb_write_request__pack_to_buffer
-                     (const Main__MbWriteRequest *message,
+size_t mb_write_request__pack_to_buffer
+                     (const MbWriteRequest *message,
                       ProtobufCBuffer *buffer)
 {
-  assert(message->base.descriptor == &main__mb_write_request__descriptor);
+  assert(message->base.descriptor == &mb_write_request__descriptor);
   return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
 }
-Main__MbWriteRequest *
-       main__mb_write_request__unpack
+MbWriteRequest *
+       mb_write_request__unpack
                      (ProtobufCAllocator  *allocator,
                       size_t               len,
                       const uint8_t       *data)
 {
-  return (Main__MbWriteRequest *)
-     protobuf_c_message_unpack (&main__mb_write_request__descriptor,
+  return (MbWriteRequest *)
+     protobuf_c_message_unpack (&mb_write_request__descriptor,
                                 allocator, len, data);
 }
-void   main__mb_write_request__free_unpacked
-                     (Main__MbWriteRequest *message,
+void   mb_write_request__free_unpacked
+                     (MbWriteRequest *message,
                       ProtobufCAllocator *allocator)
 {
-  assert(message->base.descriptor == &main__mb_write_request__descriptor);
+  assert(message->base.descriptor == &mb_write_request__descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
-void   main__mb_tcp_single_write_req__init
-                     (Main__MbTcpSingleWriteReq         *message)
+void   mb_tcp_single_write_req__init
+                     (MbTcpSingleWriteReq         *message)
 {
-  static Main__MbTcpSingleWriteReq init_value = MAIN__MB_TCP_SINGLE_WRITE_REQ__INIT;
+  static MbTcpSingleWriteReq init_value = MB_TCP_SINGLE_WRITE_REQ__INIT;
   *message = init_value;
 }
-size_t main__mb_tcp_single_write_req__get_packed_size
-                     (const Main__MbTcpSingleWriteReq *message)
+size_t mb_tcp_single_write_req__get_packed_size
+                     (const MbTcpSingleWriteReq *message)
 {
-  assert(message->base.descriptor == &main__mb_tcp_single_write_req__descriptor);
+  assert(message->base.descriptor == &mb_tcp_single_write_req__descriptor);
   return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
 }
-size_t main__mb_tcp_single_write_req__pack
-                     (const Main__MbTcpSingleWriteReq *message,
+size_t mb_tcp_single_write_req__pack
+                     (const MbTcpSingleWriteReq *message,
                       uint8_t       *out)
 {
-  assert(message->base.descriptor == &main__mb_tcp_single_write_req__descriptor);
+  assert(message->base.descriptor == &mb_tcp_single_write_req__descriptor);
   return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
 }
-size_t main__mb_tcp_single_write_req__pack_to_buffer
-                     (const Main__MbTcpSingleWriteReq *message,
+size_t mb_tcp_single_write_req__pack_to_buffer
+                     (const MbTcpSingleWriteReq *message,
                       ProtobufCBuffer *buffer)
 {
-  assert(message->base.descriptor == &main__mb_tcp_single_write_req__descriptor);
+  assert(message->base.descriptor == &mb_tcp_single_write_req__descriptor);
   return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
 }
-Main__MbTcpSingleWriteReq *
-       main__mb_tcp_single_write_req__unpack
+MbTcpSingleWriteReq *
+       mb_tcp_single_write_req__unpack
                      (ProtobufCAllocator  *allocator,
                       size_t               len,
                       const uint8_t       *data)
 {
-  return (Main__MbTcpSingleWriteReq *)
-     protobuf_c_message_unpack (&main__mb_tcp_single_write_req__descriptor,
+  return (MbTcpSingleWriteReq *)
+     protobuf_c_message_unpack (&mb_tcp_single_write_req__descriptor,
                                 allocator, len, data);
 }
-void   main__mb_tcp_single_write_req__free_unpacked
-                     (Main__MbTcpSingleWriteReq *message,
+void   mb_tcp_single_write_req__free_unpacked
+                     (MbTcpSingleWriteReq *message,
                       ProtobufCAllocator *allocator)
 {
-  assert(message->base.descriptor == &main__mb_tcp_single_write_req__descriptor);
+  assert(message->base.descriptor == &mb_tcp_single_write_req__descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
-static const ProtobufCFieldDescriptor main__cmd_header__field_descriptors[5] =
+static const ProtobufCFieldDescriptor cmd_header__field_descriptors[5] =
 {
   {
     "receiver",
@@ -187,7 +187,7 @@ static const ProtobufCFieldDescriptor main__cmd_header__field_descriptors[5] =
     PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_STRING,
     0,   /* quantifier_offset */
-    offsetof(Main__CmdHeader, receiver),
+    offsetof(CmdHeader, receiver),
     NULL,
     NULL,
     0,             /* flags */
@@ -199,7 +199,7 @@ static const ProtobufCFieldDescriptor main__cmd_header__field_descriptors[5] =
     PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_STRING,
     0,   /* quantifier_offset */
-    offsetof(Main__CmdHeader, sender),
+    offsetof(CmdHeader, sender),
     NULL,
     NULL,
     0,             /* flags */
@@ -211,7 +211,7 @@ static const ProtobufCFieldDescriptor main__cmd_header__field_descriptors[5] =
     PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_STRING,
     0,   /* quantifier_offset */
-    offsetof(Main__CmdHeader, version),
+    offsetof(CmdHeader, version),
     NULL,
     NULL,
     0,             /* flags */
@@ -223,7 +223,7 @@ static const ProtobufCFieldDescriptor main__cmd_header__field_descriptors[5] =
     PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_UINT64,
     0,   /* quantifier_offset */
-    offsetof(Main__CmdHeader, tid),
+    offsetof(CmdHeader, tid),
     NULL,
     NULL,
     0,             /* flags */
@@ -235,41 +235,41 @@ static const ProtobufCFieldDescriptor main__cmd_header__field_descriptors[5] =
     PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_STRING,
     0,   /* quantifier_offset */
-    offsetof(Main__CmdHeader, method),
+    offsetof(CmdHeader, method),
     NULL,
     NULL,
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
 };
-static const unsigned main__cmd_header__field_indices_by_name[] = {
+static const unsigned cmd_header__field_indices_by_name[] = {
   4,   /* field[4] = method */
   0,   /* field[0] = receiver */
   1,   /* field[1] = sender */
   3,   /* field[3] = tid */
   2,   /* field[2] = version */
 };
-static const ProtobufCIntRange main__cmd_header__number_ranges[1 + 1] =
+static const ProtobufCIntRange cmd_header__number_ranges[1 + 1] =
 {
   { 1, 0 },
   { 0, 5 }
 };
-const ProtobufCMessageDescriptor main__cmd_header__descriptor =
+const ProtobufCMessageDescriptor cmd_header__descriptor =
 {
   PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
-  "main.CmdHeader",
   "CmdHeader",
-  "Main__CmdHeader",
-  "main",
-  sizeof(Main__CmdHeader),
+  "CmdHeader",
+  "CmdHeader",
+  "",
+  sizeof(CmdHeader),
   5,
-  main__cmd_header__field_descriptors,
-  main__cmd_header__field_indices_by_name,
-  1,  main__cmd_header__number_ranges,
-  (ProtobufCMessageInit) main__cmd_header__init,
+  cmd_header__field_descriptors,
+  cmd_header__field_indices_by_name,
+  1,  cmd_header__number_ranges,
+  (ProtobufCMessageInit) cmd_header__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
-static const ProtobufCFieldDescriptor main__mb_tcp_header__field_descriptors[3] =
+static const ProtobufCFieldDescriptor mb_tcp_header__field_descriptors[3] =
 {
   {
     "ip",
@@ -277,7 +277,7 @@ static const ProtobufCFieldDescriptor main__mb_tcp_header__field_descriptors[3] 
     PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_STRING,
     0,   /* quantifier_offset */
-    offsetof(Main__MbTcpHeader, ip),
+    offsetof(MbTcpHeader, ip),
     NULL,
     NULL,
     0,             /* flags */
@@ -289,7 +289,7 @@ static const ProtobufCFieldDescriptor main__mb_tcp_header__field_descriptors[3] 
     PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_UINT32,
     0,   /* quantifier_offset */
-    offsetof(Main__MbTcpHeader, port),
+    offsetof(MbTcpHeader, port),
     NULL,
     NULL,
     0,             /* flags */
@@ -301,39 +301,39 @@ static const ProtobufCFieldDescriptor main__mb_tcp_header__field_descriptors[3] 
     PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_UINT32,
     0,   /* quantifier_offset */
-    offsetof(Main__MbTcpHeader, id),
+    offsetof(MbTcpHeader, id),
     NULL,
     NULL,
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
 };
-static const unsigned main__mb_tcp_header__field_indices_by_name[] = {
+static const unsigned mb_tcp_header__field_indices_by_name[] = {
   2,   /* field[2] = id */
   0,   /* field[0] = ip */
   1,   /* field[1] = port */
 };
-static const ProtobufCIntRange main__mb_tcp_header__number_ranges[1 + 1] =
+static const ProtobufCIntRange mb_tcp_header__number_ranges[1 + 1] =
 {
   { 1, 0 },
   { 0, 3 }
 };
-const ProtobufCMessageDescriptor main__mb_tcp_header__descriptor =
+const ProtobufCMessageDescriptor mb_tcp_header__descriptor =
 {
   PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
-  "main.MbTcpHeader",
   "MbTcpHeader",
-  "Main__MbTcpHeader",
-  "main",
-  sizeof(Main__MbTcpHeader),
+  "MbTcpHeader",
+  "MbTcpHeader",
+  "",
+  sizeof(MbTcpHeader),
   3,
-  main__mb_tcp_header__field_descriptors,
-  main__mb_tcp_header__field_indices_by_name,
-  1,  main__mb_tcp_header__number_ranges,
-  (ProtobufCMessageInit) main__mb_tcp_header__init,
+  mb_tcp_header__field_descriptors,
+  mb_tcp_header__field_indices_by_name,
+  1,  mb_tcp_header__number_ranges,
+  (ProtobufCMessageInit) mb_tcp_header__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
-static const ProtobufCFieldDescriptor main__mb_write_request__field_descriptors[5] =
+static const ProtobufCFieldDescriptor mb_write_request__field_descriptors[5] =
 {
   {
     "code",
@@ -341,7 +341,7 @@ static const ProtobufCFieldDescriptor main__mb_write_request__field_descriptors[
     PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_UINT32,
     0,   /* quantifier_offset */
-    offsetof(Main__MbWriteRequest, code),
+    offsetof(MbWriteRequest, code),
     NULL,
     NULL,
     0,             /* flags */
@@ -353,7 +353,7 @@ static const ProtobufCFieldDescriptor main__mb_write_request__field_descriptors[
     PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_UINT32,
     0,   /* quantifier_offset */
-    offsetof(Main__MbWriteRequest, register_),
+    offsetof(MbWriteRequest, register_),
     NULL,
     NULL,
     0,             /* flags */
@@ -365,7 +365,7 @@ static const ProtobufCFieldDescriptor main__mb_write_request__field_descriptors[
     PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_STRING,
     0,   /* quantifier_offset */
-    offsetof(Main__MbWriteRequest, value),
+    offsetof(MbWriteRequest, value),
     NULL,
     NULL,
     0,             /* flags */
@@ -377,7 +377,7 @@ static const ProtobufCFieldDescriptor main__mb_write_request__field_descriptors[
     PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_STRING,
     0,   /* quantifier_offset */
-    offsetof(Main__MbWriteRequest, type),
+    offsetof(MbWriteRequest, type),
     NULL,
     NULL,
     0,             /* flags */
@@ -389,41 +389,41 @@ static const ProtobufCFieldDescriptor main__mb_write_request__field_descriptors[
     PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_STRING,
     0,   /* quantifier_offset */
-    offsetof(Main__MbWriteRequest, alias),
+    offsetof(MbWriteRequest, alias),
     NULL,
     NULL,
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
 };
-static const unsigned main__mb_write_request__field_indices_by_name[] = {
+static const unsigned mb_write_request__field_indices_by_name[] = {
   4,   /* field[4] = alias */
   0,   /* field[0] = code */
   1,   /* field[1] = register */
   3,   /* field[3] = type */
   2,   /* field[2] = value */
 };
-static const ProtobufCIntRange main__mb_write_request__number_ranges[1 + 1] =
+static const ProtobufCIntRange mb_write_request__number_ranges[1 + 1] =
 {
   { 1, 0 },
   { 0, 5 }
 };
-const ProtobufCMessageDescriptor main__mb_write_request__descriptor =
+const ProtobufCMessageDescriptor mb_write_request__descriptor =
 {
   PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
-  "main.MbWriteRequest",
   "MbWriteRequest",
-  "Main__MbWriteRequest",
-  "main",
-  sizeof(Main__MbWriteRequest),
+  "MbWriteRequest",
+  "MbWriteRequest",
+  "",
+  sizeof(MbWriteRequest),
   5,
-  main__mb_write_request__field_descriptors,
-  main__mb_write_request__field_indices_by_name,
-  1,  main__mb_write_request__number_ranges,
-  (ProtobufCMessageInit) main__mb_write_request__init,
+  mb_write_request__field_descriptors,
+  mb_write_request__field_indices_by_name,
+  1,  mb_write_request__number_ranges,
+  (ProtobufCMessageInit) mb_write_request__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
-static const ProtobufCFieldDescriptor main__mb_tcp_single_write_req__field_descriptors[3] =
+static const ProtobufCFieldDescriptor mb_tcp_single_write_req__field_descriptors[3] =
 {
   {
     "cmd_header",
@@ -431,8 +431,8 @@ static const ProtobufCFieldDescriptor main__mb_tcp_single_write_req__field_descr
     PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_MESSAGE,
     0,   /* quantifier_offset */
-    offsetof(Main__MbTcpSingleWriteReq, cmd_header),
-    &main__cmd_header__descriptor,
+    offsetof(MbTcpSingleWriteReq, cmd_header),
+    &cmd_header__descriptor,
     NULL,
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
@@ -443,8 +443,8 @@ static const ProtobufCFieldDescriptor main__mb_tcp_single_write_req__field_descr
     PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_MESSAGE,
     0,   /* quantifier_offset */
-    offsetof(Main__MbTcpSingleWriteReq, mb_tcp_header),
-    &main__mb_tcp_header__descriptor,
+    offsetof(MbTcpSingleWriteReq, mb_tcp_header),
+    &mb_tcp_header__descriptor,
     NULL,
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
@@ -455,35 +455,35 @@ static const ProtobufCFieldDescriptor main__mb_tcp_single_write_req__field_descr
     PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_MESSAGE,
     0,   /* quantifier_offset */
-    offsetof(Main__MbTcpSingleWriteReq, mb_write_request),
-    &main__mb_write_request__descriptor,
+    offsetof(MbTcpSingleWriteReq, mb_write_request),
+    &mb_write_request__descriptor,
     NULL,
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
 };
-static const unsigned main__mb_tcp_single_write_req__field_indices_by_name[] = {
+static const unsigned mb_tcp_single_write_req__field_indices_by_name[] = {
   0,   /* field[0] = cmd_header */
   1,   /* field[1] = mb_tcp_header */
   2,   /* field[2] = mb_write_request */
 };
-static const ProtobufCIntRange main__mb_tcp_single_write_req__number_ranges[1 + 1] =
+static const ProtobufCIntRange mb_tcp_single_write_req__number_ranges[1 + 1] =
 {
   { 1, 0 },
   { 0, 3 }
 };
-const ProtobufCMessageDescriptor main__mb_tcp_single_write_req__descriptor =
+const ProtobufCMessageDescriptor mb_tcp_single_write_req__descriptor =
 {
   PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
-  "main.MbTcpSingleWriteReq",
   "MbTcpSingleWriteReq",
-  "Main__MbTcpSingleWriteReq",
-  "main",
-  sizeof(Main__MbTcpSingleWriteReq),
+  "MbTcpSingleWriteReq",
+  "MbTcpSingleWriteReq",
+  "",
+  sizeof(MbTcpSingleWriteReq),
   3,
-  main__mb_tcp_single_write_req__field_descriptors,
-  main__mb_tcp_single_write_req__field_indices_by_name,
-  1,  main__mb_tcp_single_write_req__number_ranges,
-  (ProtobufCMessageInit) main__mb_tcp_single_write_req__init,
+  mb_tcp_single_write_req__field_descriptors,
+  mb_tcp_single_write_req__field_indices_by_name,
+  1,  mb_tcp_single_write_req__number_ranges,
+  (ProtobufCMessageInit) mb_tcp_single_write_req__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
