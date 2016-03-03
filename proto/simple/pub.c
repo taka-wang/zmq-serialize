@@ -4,8 +4,8 @@
 #include <stdlib.h>
 #include "type.pb-c.h"
 #include <czmq.h>
-#include <unistd.h>
 #include <signal.h>
+#include <unistd.h>
 
 static volatile int do_loop = 1;
 
@@ -14,9 +14,22 @@ void intHandler(int dummy) {
     do_loop = 0;
 }
 
+void sig_handler(int signo)
+{
+    if (signo == SIGINT) {
+        printf("received SIGINT\n");
+        do_loop = 0;
+    }
+}
+
+
 int main (int argc, char *argv [])
 {
-    signal(SIGINT, intHandler); // handle ctrl+c
+    if (signal(SIGINT, sig_handler) == SIG_ERR) {
+        printf("\ncan't catch SIGINT\n");
+    }
+
+    //signal(SIGINT, intHandler); // handle ctrl+c
 
     void *buf;                     // Buffer to store serialized data
     unsigned len;
