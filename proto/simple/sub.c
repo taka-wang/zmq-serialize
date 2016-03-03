@@ -32,7 +32,7 @@ int main (int argc, char *argv [])
             fprintf(stderr, "error unpacking incoming message\n");
             exit(1);
         }
-        printf("Received: port=%d",msg->port);  // required field
+        printf("Received: port=%d", command->port);  // required field
 
 
 
