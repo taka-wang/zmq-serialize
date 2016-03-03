@@ -38,7 +38,7 @@ int main (int argc, char *argv [])
     for (i = 0; i < command.n_requests; ++i)
     {
         mb_write_requests[i] = malloc (sizeof (MbWriteRequest));
-        MB_WRITE_REQUEST__INIT (mb_write_requests[i]);
+        mb_write_request__init (mb_write_requests[i]); // note!!
         mb_write_requests[i]->code       = 1;
         mb_write_requests[i]->register_  = 2003; // strange code gen
         mb_write_requests[i]->value      = "1025";
