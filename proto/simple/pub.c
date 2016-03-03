@@ -28,7 +28,7 @@ void* pack()
 
 int main (int argc, char *argv [])
 {
-    void *buf = pack();
+    void *buf = pack(); // pack message
 
     zctx_t *context = zctx_new();
     void *publisher = zsocket_new(context, ZMQ_PUB);

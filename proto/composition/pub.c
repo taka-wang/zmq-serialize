@@ -6,10 +6,8 @@
 #include <czmq.h>
 #include <unistd.h>
 
-
-int main (int argc, char *argv [])
+void* pack()
 {
-
     void *buf; // Buffer to store serialized data
     unsigned len;
 
@@ -42,6 +40,14 @@ int main (int argc, char *argv [])
     len = mb_tcp_single_write_req__get_packed_size (&command);
     buf = malloc (len);                     // Allocate memory
     mb_tcp_single_write_req__pack (&command, buf);
+
+    return buf;
+}
+
+int main (int argc, char *argv [])
+{
+
+    void *buf = pack(); // pack message
 
     zctx_t *context = zctx_new();
     void *publisher = zsocket_new(context, ZMQ_PUB);

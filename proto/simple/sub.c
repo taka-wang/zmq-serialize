@@ -13,6 +13,7 @@ int main (int argc, char *argv [])
     
     while (!zctx_interrupted) {
         zmsg_t *msg = zmsg_recv(subscriber);
+        //zmsg_dump(msg); // debug
         zframe_t *first = zmsg_pop(msg);
         zframe_t *payload = zmsg_pop(msg);
         char *first_buffer = zframe_strdup(first);
@@ -32,9 +33,6 @@ int main (int argc, char *argv [])
         }
 
         printf("Recv: ip: %s, port: %d, id: %d\n", command->ip, command->port, command->id);
-
-
-        //zmsg_dump(msg);
         
         //cleanup
         main__mb_tcp_header__free_unpacked(command, NULL); // free unpacked command

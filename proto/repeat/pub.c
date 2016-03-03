@@ -6,6 +6,10 @@
 #include <czmq.h>
 #include <unistd.h>
 
+void* pack()
+{
+
+}
 
 int main (int argc, char *argv [])
 {
@@ -14,13 +18,12 @@ int main (int argc, char *argv [])
     unsigned len;
 
     // initialize
-    CmdHeader cmd_header = CMD_HEADER__INIT;
-    MbTcpHeader mb_tcp_header = MB_TCP_HEADER__INIT;
-    
-    MbWriteRequest **mb_write_requests; // without init
-    
-    MbTcpMultipleWriteReq command = MB_TCP_MULTIPLE_WRITE_REQ__INIT;
+    CmdHeader               cmd_header = CMD_HEADER__INIT;
+    MbTcpHeader             mb_tcp_header = MB_TCP_HEADER__INIT;
+    MbWriteRequest          **mb_write_requests; // without init
+    MbTcpMultipleWriteReq   command = MB_TCP_MULTIPLE_WRITE_REQ__INIT;
 
+    // assignment
     cmd_header.receiver = "mbtcp";
     cmd_header.sender   = "restful";
     cmd_header.version  = 1;
@@ -31,13 +34,13 @@ int main (int argc, char *argv [])
     mb_tcp_header.port  = 503;
     mb_tcp_header.id    = 22;
     
-    command.n_requests  = 2;
-    mb_write_requests = malloc (sizeof (MbWriteRequest*) * command.n_requests);
+    command.n_requests  = 2; // repeat count
+    mb_write_requests = malloc (sizeof (MbWriteRequest*) * command.n_requests); // dynamic allocate memory
 
     int i = 0;
     for (i = 0; i < command.n_requests; ++i)
     {
-        mb_write_requests[i] = malloc (sizeof (MbWriteRequest));
+        mb_write_requests[i] = malloc (sizeof (MbWriteRequest)); // dynamic allocate memory
         mb_write_request__init (mb_write_requests[i]); // note!! dynamic init
 
         // assignment
@@ -53,7 +56,7 @@ int main (int argc, char *argv [])
     command.requests        = mb_write_requests;    // note!
 
     len = mb_tcp_multiple_write_req__get_packed_size (&command);
-    buf = malloc (len);                     // Allocate memory
+    buf = malloc (len); // dynamic allocate memory
     mb_tcp_multiple_write_req__pack (&command, buf);
 
     zctx_t *context = zctx_new();
@@ -71,7 +74,7 @@ int main (int argc, char *argv [])
     
     // cleanup
     free(buf);
-    // free repeat
+    // free repeat fields
     for (i = 0; i < command.n_requests; ++i) {
         free(mb_write_requests[i]);
     }
