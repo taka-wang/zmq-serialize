@@ -7,7 +7,7 @@
 #include <unistd.h>
 
 
-void *buf pack()
+void* pack()
 {
     void *buf; // Buffer to store serialized data
     unsigned len;
