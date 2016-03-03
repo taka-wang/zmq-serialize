@@ -17,7 +17,7 @@ int main (int argc, char *argv [])
     CmdHeader cmd_header = CMD_HEADER__INIT;
     MbTcpHeader mb_tcp_header = MB_TCP_HEADER__INIT;
     
-    MbWriteRequest **mb_write_requests;
+    MbWriteRequest **mb_write_requests; // without init
     
     MbTcpMultipleWriteReq command = MB_TCP_MULTIPLE_WRITE_REQ__INIT;
 
@@ -38,9 +38,11 @@ int main (int argc, char *argv [])
     for (i = 0; i < command.n_requests; ++i)
     {
         mb_write_requests[i] = malloc (sizeof (MbWriteRequest));
-        mb_write_request__init (mb_write_requests[i]); // note!!
+        mb_write_request__init (mb_write_requests[i]); // note!! dynamic init
+
+        // assignment
         mb_write_requests[i]->code       = 1;
-        mb_write_requests[i]->register_  = 2003; // strange code gen
+        mb_write_requests[i]->register_  = 2003;        // strange code gen for "register"
         mb_write_requests[i]->value      = "1025";
         mb_write_requests[i]->type       = "int64";
         mb_write_requests[i]->alias      = "hello";
@@ -48,7 +50,7 @@ int main (int argc, char *argv [])
 
     command.cmd_header      = &cmd_header;
     command.mb_tcp_header   = &mb_tcp_header;
-    command.requests        = mb_write_requests;
+    command.requests        = mb_write_requests;    // note!
 
     len = mb_tcp_multiple_write_req__get_packed_size (&command);
     buf = malloc (len);                     // Allocate memory

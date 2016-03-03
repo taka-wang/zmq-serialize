@@ -21,17 +21,17 @@ int main (int argc, char *argv [])
         //printf("payload: %s\n", payload_buffer);
 
         // unpack
-        MbTcpSingleWriteReq *command;
+        MbTcpMultipleWriteReq *command;
+        
         CmdHeader *cmd_header;
         MbTcpHeader *mb_tcp_header;
-        MbWriteRequest *mb_write_request;
+        //MbWriteRequest *mb_write_request;
 
         unsigned len = zframe_size(payload);
 
         command = mb_tcp_single_write_req__unpack(NULL, len, payload_buffer);
         cmd_header       = command->cmd_header;
         mb_tcp_header    = command->mb_tcp_header;
-        mb_write_request = command->mb_write_request;
         
         if (command == NULL) {
             fprintf(stderr, "error unpacking incoming message\n");
@@ -40,12 +40,22 @@ int main (int argc, char *argv [])
 
         printf("Recv: %s %s %d %lld %s\n", cmd_header->receiver, cmd_header->sender, cmd_header->version, cmd_header->tid, cmd_header->method);
         printf("Recv: ip: %s, port: %d, id: %d\n", mb_tcp_header->ip, mb_tcp_header->port, mb_tcp_header->id);
-        printf("Recv: %d %d %s %s %s\n", mb_write_request->code, mb_write_request->register_, mb_write_request->value, mb_write_request->type, mb_write_request->alias);
+        
+        int i = 0;
+        for (i = 0; i < command->n_requests; ++i)
+        {
+            printf("Recv: %d %d %s %s %s\n",
+                command->requests[i]->code, 
+                command->requests[i]->register_, 
+                command->requests[i]->value, 
+                command->requests[i]->type, 
+                command->requests[i]->alias);
+        }
 
         //zmsg_dump(msg);
         
         //cleanup
-        mb_tcp_single_write_req__free_unpacked(command, NULL); // free unpacked command
+        mb_tcp_multiple_write_req__free_unpacked(command, NULL); // free unpacked command
         zframe_destroy(&first);
         zframe_destroy(&payload);
         zmsg_destroy(&msg );
