@@ -49,7 +49,7 @@ struct  _CmdHeader
 };
 #define CMD_HEADER__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&cmd_header__descriptor) \
-    , NULL, NULL, NULL, 0, NULL }
+    , NULL, NULL, 0, 0, NULL }
 
 
 struct  _MbTcpHeader
