@@ -46,7 +46,6 @@ int main (int argc, char *argv [])
         mb_write_requests[i]->alias      = "hello";
     }
 
-
     command.cmd_header      = &cmd_header;
     command.mb_tcp_header   = &mb_tcp_header;
     command.requests        = mb_write_requests;
@@ -70,6 +69,12 @@ int main (int argc, char *argv [])
     
     // cleanup
     free(buf);
+    // free repeat
+    for (i = 0; i < command.n_requests; ++i) {
+        free(mb_write_requests[i]);
+    }
+    free(mb_write_requests);
+
     zctx_destroy(&context);
     return 0;
 }
