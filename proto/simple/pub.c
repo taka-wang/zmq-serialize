@@ -5,13 +5,22 @@
 #include "type.pb-c.h"
 #include <czmq.h>
 #include <unistd.h>
+#include <signal.h>
+
+static volatile int do_loop = 1;
+
+void intHandler(int dummy) {
+    do_loop = 0;
+}
 
 int main (int argc, char *argv [])
 {
+    signal(SIGINT, intHandler); // handle ctrl+c
 
-    Main__MbTcpHeader command = MAIN__MB_TCP_HEADER__INIT; // construct
     void *buf;                     // Buffer to store serialized data
     unsigned len;
+
+    Main__MbTcpHeader command = MAIN__MB_TCP_HEADER__INIT; // construct
 
     command.has_port = 1;
     command.has_id = 1;
@@ -29,8 +38,7 @@ int main (int argc, char *argv [])
     void *publisher = zsocket_new(context, ZMQ_PUB);
     zsocket_connect (publisher, "ipc:///tmp/dummy");
     
-    while (true) {
-        printf(".\n");
+    while (do_loop) {
         zmsg_t *msg = zmsg_new();
         zmsg_addstr(msg, "mbtcp.once.write");         // frame 1
         zmsg_addstr(msg, (char*)buf); // frame 2
