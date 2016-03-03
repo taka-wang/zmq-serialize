@@ -1,7 +1,7 @@
-// compile: gcc type.pb-c.h type.pb-c.c sub.c -lzmq -lczmq -lprotobuf-c  -o subc
+// compile: gcc type2.pb-c.h type2.pb-c.c sub.c -lzmq -lczmq -lprotobuf-c  -o subc
 
 #include <czmq.h>
-#include "type.pb-c.h"
+#include "type2.pb-c.h"
 
 int main (int argc, char *argv [])
 {

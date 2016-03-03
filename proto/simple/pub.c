@@ -1,8 +1,8 @@
-// compile: gcc type.pb-c.h type.pb-c.c pub.c -lzmq -lczmq -lprotobuf-c  -o pubc
+// compile: gcc type2.pb-c.h type2.pb-c.c pub.c -lzmq -lczmq -lprotobuf-c  -o pubc
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "type.pb-c.h"
+#include "type2.pb-c.h"
 #include <czmq.h>
 #include <unistd.h>
 
@@ -15,8 +15,8 @@ int main (int argc, char *argv [])
 
     Main__MbTcpHeader command = MAIN__MB_TCP_HEADER__INIT; // construct
 
-    command.has_port = 1;
-    command.has_id = 1;
+    //command.has_port = 1;
+    //command.has_id = 1;
     command.ip = "192.168.1.1";
     command.port = 503;
     command.id = 22;
