@@ -40,7 +40,7 @@ struct  _CmdHeader
   /*
    * protocol version
    */
-  char *version;
+  uint32_t version;
   uint64_t tid;
   /*
    * command name
