@@ -16,6 +16,7 @@ protoc --plugin=protoc-gen-go  --go_out=. type.proto
 ```
 
 #### @protoc-c
+
 ```
 protoc-c --c_out=. type2.proto # code gen
 ```
