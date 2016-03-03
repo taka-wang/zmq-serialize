@@ -34,7 +34,8 @@ int main (int argc, char *argv [])
     command.n_requests  = 2;
     mb_write_requests = malloc (sizeof (MbWriteRequest*) * command.n_requests);
 
-    for (int i = 0; i < command.n_requests; ++i)
+    int i = 0;
+    for (i = 0; i < command.n_requests; ++i)
     {
         mb_write_requests[i] = malloc (sizeof (MbWriteRequest));
         MB_WRITE_REQUEST__INIT (mb_write_requests[i]);
