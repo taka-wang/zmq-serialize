@@ -2,8 +2,6 @@ package main
 
 import (
 	"bytes"
-	_ "encoding/json"
-	_ "fmt"
 	zmq "github.com/taka-wang/zmq3"
 	"github.com/ugorji/go/codec"
 	"time"
@@ -11,18 +9,8 @@ import (
 
 var (
 	mh = &codec.MsgpackHandle{RawToString: true}
-)
 
-func main() {
-	pub()
-}
-
-func pub() {
-	sender, _ := zmq.NewSocket(zmq.PUB)
-	defer sender.Close()
-	sender.Connect("ipc:///tmp/dummy")
-
-	command := MbTcpSingleWriteReq{ // named key
+	command = MbTcpSingleWriteReq{ // named key
 		CmdHeader: CmdHeader{
 			Receiver: "mbtcp",
 			Sender:   "restful",
@@ -43,6 +31,16 @@ func pub() {
 			Alias:    "hello",
 		},
 	}
+)
+
+func main() {
+	pub()
+}
+
+func pub() {
+	sender, _ := zmq.NewSocket(zmq.PUB)
+	defer sender.Close()
+	sender.Connect("ipc:///tmp/dummy")
 
 	// pack
 	buf := &bytes.Buffer{}
