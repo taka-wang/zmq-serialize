@@ -30,7 +30,7 @@ int main (int argc, char *argv [])
     mb_tcp_header.id    = 22;
     
     mb_write_request.code       = 1;
-    mb_write_request.register   = 2003;
+    mb_write_request.register_  = 2003; // strange code gen
     mb_write_request.value      = "1025";
     mb_write_request.type       = "int64";
     mb_write_request.alias      = "hello";
