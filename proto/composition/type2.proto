@@ -1,7 +1,5 @@
 syntax = "proto2";
 
-package main;
-
 message CmdHeader {
     required string receiver = 1;   // receiver
     required string sender   = 2;   // sender
