@@ -38,7 +38,7 @@ int main (int argc, char *argv [])
             break;
         }
 
-        printf("Recv: %s %s %d %d %s\n", cmd_header->receiver, cmd_header->sender, cmd_header->version, cmd_header->tid, cmd_header->method);
+        printf("Recv: %s %s %d %d PRId64 %s\n", cmd_header->receiver, cmd_header->sender, cmd_header->version, cmd_header->tid, cmd_header->method);
         printf("Recv: ip: %s, port: %d, id: %d\n", mb_tcp_header->ip, mb_tcp_header->port, mb_tcp_header->id);
         printf("Recv: %d %d %s %s %s\n", mb_write_request->code, mb_write_request->register_, mb_write_request->value, mb_write_request->type, mb_write_request->alias);
 
