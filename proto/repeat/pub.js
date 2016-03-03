@@ -25,11 +25,11 @@ var zmq = require('zmq')
             "alias":    "hello_1"  
         }, 
         {
-            "code":     1,                 
-            "register": 2003,             
-            "value":    "1025",            
-            "type":     "int64",        
-            "alias":    "hello_1"  
+            "code":     2,                 
+            "register": 3003,             
+            "value":    "2025",            
+            "type":     "int32",        
+            "alias":    "hello_2"  
         }
     ]
 }

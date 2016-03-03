@@ -43,11 +43,11 @@ func pub() {
 	)
 	command.Requests = append(command.Requests,
 		&MbWriteRequest{
-			Code:     1,
-			Register: 2003,
-			Value:    "1025",
-			Type:     "int64",
-			Alias:    "hello",
+			Code:     2,
+			Register: 3003,
+			Value:    "2025",
+			Type:     "int32",
+			Alias:    "hello_2",
 		},
 	)
 
