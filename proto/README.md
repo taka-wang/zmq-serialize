@@ -17,5 +17,5 @@ go get -u github.com/golang/protobuf/protoc-gen-go
 
 #### @protoc-c
 ```
-protoc-c --c_out=. type.proto # code gen
+protoc-c --c_out=. type2.proto # code gen
 ```
