@@ -7,7 +7,7 @@ int main (int argc, char *argv [])
 {
     zctx_t *context = zctx_new ();
     void *subscriber = zsocket_new (context, ZMQ_SUB);
-    zsocket_connect (subscriber, "ipc:///tmp/dummy");
+    zsocket_bind (subscriber, "ipc:///tmp/dummy");
 
     zsocket_set_subscribe (subscriber, "mbtcp"); // set filter
     
