@@ -209,7 +209,7 @@ static const ProtobufCFieldDescriptor cmd_header__field_descriptors[5] =
     "version",
     3,
     PROTOBUF_C_LABEL_REQUIRED,
-    PROTOBUF_C_TYPE_STRING,
+    PROTOBUF_C_TYPE_UINT32,
     0,   /* quantifier_offset */
     offsetof(CmdHeader, version),
     NULL,
