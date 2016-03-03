@@ -1,1 +1,7 @@
-Simple struct
+# Simple struct
+
+### Build
+
+```bash
+./build.sh
+```

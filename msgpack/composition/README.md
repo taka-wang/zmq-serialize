@@ -1,1 +1,7 @@
-Struct composition (anonymous field)
+# Struct composition (anonymous field)
+
+### Build
+
+```bash
+./build.sh
+```

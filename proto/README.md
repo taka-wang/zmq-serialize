@@ -19,3 +19,5 @@ go get -u github.com/golang/protobuf/protoc-gen-go
 ```
 protoc-c --c_out=. type2.proto # code gen
 ```
+
+@Note protoc-c keyword "register" !

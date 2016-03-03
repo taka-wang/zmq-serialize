@@ -1,1 +1,7 @@
-List of structs
+# List of structs
+
+### Build
+
+```bash
+./build.sh
+```
