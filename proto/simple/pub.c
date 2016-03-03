@@ -4,23 +4,7 @@
 #include <stdlib.h>
 #include "type.pb-c.h"
 #include <czmq.h>
-#include <signal.h>
 #include <unistd.h>
-
-static volatile int do_loop = 1;
-
-void intHandler(int dummy) {
-    printf("got it\n");
-    do_loop = 0;
-}
-
-void sig_handler(int signo)
-{
-    if (signo == SIGINT) {
-        printf("received SIGINT\n");
-        do_loop = 0;
-    }
-}
 
 
 int main (int argc, char *argv [])
