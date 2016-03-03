@@ -6,11 +6,6 @@
 #include <czmq.h>
 #include <unistd.h>
 
-void* pack()
-{
-
-}
-
 int main (int argc, char *argv [])
 {
 
