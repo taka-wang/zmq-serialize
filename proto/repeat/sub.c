@@ -25,13 +25,15 @@ int main (int argc, char *argv [])
         
         CmdHeader *cmd_header;
         MbTcpHeader *mb_tcp_header;
-        //MbWriteRequest *mb_write_request;
+        
+        MbWriteRequest **mb_write_requests; // note!
 
         unsigned len = zframe_size(payload);
 
         command = mb_tcp_multiple_write_req__unpack(NULL, len, payload_buffer);
         cmd_header       = command->cmd_header;
         mb_tcp_header    = command->mb_tcp_header;
+        mb_write_requests= command->requests; // note!
         
         if (command == NULL) {
             fprintf(stderr, "error unpacking incoming message\n");
@@ -44,12 +46,20 @@ int main (int argc, char *argv [])
         int i = 0;
         for (i = 0; i < command->n_requests; ++i)
         {
+            /*
             printf("Recv: %d %d %s %s %s\n",
                 command->requests[i]->code, 
                 command->requests[i]->register_, 
                 command->requests[i]->value, 
                 command->requests[i]->type, 
                 command->requests[i]->alias);
+            */
+            printf("Recv: %d %d %s %s %s\n",
+                mb_write_requests[i]->code, 
+                mb_write_requests[i]->register_, 
+                mb_write_requests[i]->value, 
+                mb_write_requests[i]->type, 
+                mb_write_requests[i]->alias);
         }
 
         //zmsg_dump(msg);
