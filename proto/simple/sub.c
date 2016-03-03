@@ -30,9 +30,14 @@ int main (int argc, char *argv [])
             fprintf(stderr, "error unpacking incoming message\n");
             break;
         }
+
         printf("Recv: ip: %s, port: %d, id: %d\n", command->ip, command->port, command->id);
 
+
         //zmsg_dump(msg);
+        
+        //cleanup
+        main__mb_tcp_header__free_unpacked(command, NULL); // free unpacked command
         zframe_destroy(&first);
         zframe_destroy(&payload);
         zmsg_destroy(&msg );
