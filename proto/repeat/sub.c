@@ -29,7 +29,7 @@ int main (int argc, char *argv [])
 
         unsigned len = zframe_size(payload);
 
-        command = mb_tcp_single_write_req__unpack(NULL, len, payload_buffer);
+        command = mb_tcp_multiple_write_req__unpack(NULL, len, payload_buffer);
         cmd_header       = command->cmd_header;
         mb_tcp_header    = command->mb_tcp_header;
         
