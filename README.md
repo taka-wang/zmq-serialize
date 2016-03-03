@@ -66,3 +66,7 @@ cd protobuf-c/
 make
 sudo make install
 ```
+
+
+## License
+MIT
