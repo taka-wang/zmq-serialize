@@ -2,8 +2,6 @@ package main
 
 import (
 	"bytes"
-	_ "encoding/json"
-	_ "fmt"
 	zmq "github.com/taka-wang/zmq3"
 	"github.com/ugorji/go/codec"
 	"time"
@@ -11,6 +9,12 @@ import (
 
 var (
 	mh = &codec.MsgpackHandle{RawToString: true}
+
+	command = MbTcpHeader{
+		Ip:   "192.168.1.1",
+		Port: 503,
+		Id:   22,
+	}
 )
 
 func main() {
@@ -21,12 +25,6 @@ func pub() {
 	sender, _ := zmq.NewSocket(zmq.PUB)
 	defer sender.Close()
 	sender.Connect("ipc:///tmp/dummy")
-
-	command := MbTcpHeader{
-		Ip:   "192.168.1.1",
-		Port: 503,
-		Id:   22,
-	}
 
 	// pack
 	buf := &bytes.Buffer{}

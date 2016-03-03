@@ -1,11 +1,9 @@
 package main
 
 import (
-	_ "encoding/json"
 	"fmt"
 	zmq "github.com/taka-wang/zmq3"
 	"github.com/ugorji/go/codec"
-	_ "time"
 )
 
 var (
@@ -35,7 +33,6 @@ func sub() {
 		if err != nil {
 			fmt.Println(err) // unmarshal from json string failed
 		} else {
-			fmt.Println(msg[0])
 			fmt.Println(s)
 		}
 	}
