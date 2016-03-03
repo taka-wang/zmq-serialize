@@ -47,9 +47,9 @@ int main (int argc, char *argv [])
     }
 
 
-    command.cmd_header          = &cmd_header;
-    command.mb_tcp_header       = &mb_tcp_header;
-    command.mb_write_requests   = mb_write_requests;
+    command.cmd_header      = &cmd_header;
+    command.mb_tcp_header   = &mb_tcp_header;
+    command.requests        = mb_write_requests;
 
     len = mb_tcp_multiple_write_req__get_packed_size (&command);
     buf = malloc (len);                     // Allocate memory
