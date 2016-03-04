@@ -38,14 +38,16 @@ func main() {
 }
 
 func pub() {
-	sender, _ := zmq.NewSocket(zmq.PUB)
-	defer sender.Close()
-	sender.Connect("ipc:///tmp/dummy")
 
 	// pack
 	buf := &bytes.Buffer{}
 	enc := codec.NewEncoder(buf, mh)
 	enc.Encode(command)
+
+	// zmq
+	sender, _ := zmq.NewSocket(zmq.PUB)
+	defer sender.Close()
+	sender.Connect("ipc:///tmp/dummy")
 
 	for {
 		sender.Send("mbtcp.once.write", zmq.SNDMORE)

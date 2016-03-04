@@ -31,7 +31,7 @@ func sub() {
 		err := dec.Decode(&s)
 
 		if err != nil {
-			fmt.Println(err) // unmarshal from json string failed
+			fmt.Println(err)
 		} else {
 			fmt.Println(s)
 		}
