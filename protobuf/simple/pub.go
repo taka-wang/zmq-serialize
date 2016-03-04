@@ -1,7 +1,7 @@
 package main
 
 import (
-	_ "encoding/json"
+	"encoding/json"
 	"fmt"
 	proto "github.com/golang/protobuf/proto"
 	zmq "github.com/taka-wang/zmq3"
@@ -22,6 +22,10 @@ func pub() {
 		Port: 503,
 		Id:   22,
 	}
+
+	//test
+	cmd1, err1 := json.Marshal(command)
+	fmt.Println(cmd1)
 
 	cmd, err := proto.Marshal(command)
 	if err != nil {
