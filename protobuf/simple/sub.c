@@ -22,10 +22,10 @@ int main (int argc, char *argv [])
         //printf("payload: %s\n", payload_buffer);
 
         // unpack
-        Main__MbTcpHeader *command;
+        MbTcpHeader *command;
         unsigned len = zframe_size(payload);
 
-        command = main__mb_tcp_header__unpack(NULL, len, payload_buffer);
+        command = mb_tcp_header__unpack(NULL, len, payload_buffer);
         
         if (command == NULL) {
             fprintf(stderr, "error unpacking incoming message\n");
@@ -35,7 +35,7 @@ int main (int argc, char *argv [])
         printf("Recv: ip: %s, port: %d, id: %d\n", command->ip, command->port, command->id);
         
         //cleanup
-        main__mb_tcp_header__free_unpacked(command, NULL); // free unpacked command
+        mb_tcp_header__free_unpacked(command, NULL); // free unpacked command
         zframe_destroy(&first);
         zframe_destroy(&payload);
         zmsg_destroy(&msg );

@@ -12,16 +12,16 @@ void* pack()
     void *buf; // Buffer to store serialized data
     unsigned len;
 
-    Main__MbTcpHeader command = MAIN__MB_TCP_HEADER__INIT; // construct
+    MbTcpHeader command = MB_TCP_HEADER__INIT; // construct
 
     // assignment
     command.ip = "192.168.1.1";
     command.port = 503;
     command.id = 22;
     
-    len = main__mb_tcp_header__get_packed_size(&command); // get length
+    len = mb_tcp_header__get_packed_size(&command); // get length
     buf = malloc(len);                                    // allocate memory
-    main__mb_tcp_header__pack(&command, buf);             // do pack
+    mb_tcp_header__pack(&command, buf);             // do pack
 
     return buf;
 }
