@@ -7,50 +7,8 @@ import (
 	"time"
 )
 
-type CmdHeader struct {
-	Receiver string `json:"receiver"`
-	Sender   string `json:"sender"`
-	Version  string `json:"version"`
-	Tid      int    `json:"tid"`
-	Method   string `json:"method"`
-}
-
-type MbTcpHeader struct {
-	Ip   string `json:"ip"`
-	Port int    `json:"port"`
-	Id   int    `json:"id"`
-}
-
-type MbWriteRequest struct {
-	Code     int    `json:"code"`
-	Register int    `json:"register"`
-	Value    string `json:"value"`
-	Type     string `json:"type"`
-	Alias    string `json:"alias"`
-}
-
-type MbTcpSingleWriteReq struct {
-	CmdHeader      `json:"cmd_header"`
-	MbTcpHeader    `json:"mb_tcp_header"`
-	MbWriteRequest `json:"mb_write_request"`
-}
-
-type MbTcpMultipleWriteReq struct {
-	CmdHeader   `json:"cmd_header"`
-	MbTcpHeader `json:"mb_tcp_header"`
-	Requests    []MbWriteRequest `json:"requests"`
-}
-
-func main() {
-	pub()
-}
-
-func pub() {
-	sender, _ := zmq.NewSocket(zmq.PUB)
-	defer sender.Close()
-	sender.Connect("ipc:///tmp/dummy")
-
-	command := MbTcpMultipleWriteReq{ // named key
+var (
+	command = MbTcpMultipleWriteReq{ // named key
 		CmdHeader: CmdHeader{
 			Receiver: "core",
 			Sender:   "me",
@@ -63,26 +21,33 @@ func pub() {
 			Port: 503,
 			Id:   22,
 		},
+		Requests: []MbWriteRequest{
+			MbWriteRequest{
+				Code:     1,
+				Register: 2003,
+				Value:    "1025",
+				Type:     "int64",
+				Alias:    "hello",
+			},
+			MbWriteRequest{
+				Code:     1,
+				Register: 2003,
+				Value:    "1025",
+				Type:     "int64",
+				Alias:    "hello",
+			},
+		},
 	}
+)
 
-	command.Requests = append(command.Requests,
-		MbWriteRequest{
-			Code:     1,
-			Register: 2003,
-			Value:    "1025",
-			Type:     "int64",
-			Alias:    "hello",
-		},
-	)
-	command.Requests = append(command.Requests,
-		MbWriteRequest{
-			Code:     1,
-			Register: 2003,
-			Value:    "1025",
-			Type:     "int64",
-			Alias:    "hello",
-		},
-	)
+func main() {
+	pub()
+}
+
+func pub() {
+	sender, _ := zmq.NewSocket(zmq.PUB)
+	defer sender.Close()
+	sender.Connect("ipc:///tmp/dummy")
 
 	// marshal to json string
 	cmd, err := json.Marshal(command)
