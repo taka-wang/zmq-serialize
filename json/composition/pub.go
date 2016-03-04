@@ -7,44 +7,8 @@ import (
 	"time"
 )
 
-type CmdHeader struct {
-	Receiver string `json:"receiver"`
-	Sender   string `json:"sender"`
-	Version  string `json:"version"`
-	Tid      int    `json:"tid"`
-	Method   string `json:"method"`
-}
-
-type MbTcpHeader struct {
-	Ip   string `json:"ip"`
-	Port int    `json:"port"`
-	Id   int    `json:"id"`
-}
-
-type MbWriteRequest struct {
-	Code     int    `json:"code"`
-	Register int    `json:"register"`
-	Value    string `json:"value"`
-	Type     string `json:"type"`
-	Alias    string `json:"alias"`
-}
-
-type MbTcpSingleWriteReq struct {
-	CmdHeader      `json:"cmd_header"`
-	MbTcpHeader    `json:"mb_tcp_header"`
-	MbWriteRequest `json:"mb_write_request"`
-}
-
-func main() {
-	pub()
-}
-
-func pub() {
-	sender, _ := zmq.NewSocket(zmq.PUB)
-	defer sender.Close()
-	sender.Connect("ipc:///tmp/dummy")
-
-	command := MbTcpSingleWriteReq{ // named key
+var (
+	command = MbTcpSingleWriteReq{ // named key
 		CmdHeader: CmdHeader{
 			Receiver: "mbtcp",
 			Sender:   "restful",
@@ -65,6 +29,16 @@ func pub() {
 			Alias:    "hello",
 		},
 	}
+)
+
+func main() {
+	pub()
+}
+
+func pub() {
+	sender, _ := zmq.NewSocket(zmq.PUB)
+	defer sender.Close()
+	sender.Connect("ipc:///tmp/dummy")
 
 	// marshal to json string
 	cmd, err := json.Marshal(command)
@@ -74,7 +48,7 @@ func pub() {
 
 	for {
 		sender.Send("mbtcp.once.write", zmq.SNDMORE)
-		sender.Send(string(cmd), 0)
+		sender.Send(string(cmd), 0) // byte arr to string
 		time.Sleep(time.Duration(1000) * time.Millisecond)
 	}
 }
