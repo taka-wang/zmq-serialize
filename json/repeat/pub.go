@@ -45,15 +45,17 @@ func main() {
 }
 
 func pub() {
-	sender, _ := zmq.NewSocket(zmq.PUB)
-	defer sender.Close()
-	sender.Connect("ipc:///tmp/dummy")
 
 	// marshal to json string
 	cmd, err := json.Marshal(command)
 	if err != nil {
 		fmt.Println("json err:", err)
 	}
+
+	// zmq
+	sender, _ := zmq.NewSocket(zmq.PUB)
+	defer sender.Close()
+	sender.Connect("ipc:///tmp/dummy")
 
 	for {
 		sender.Send("mbtcp.once.write", zmq.SNDMORE)

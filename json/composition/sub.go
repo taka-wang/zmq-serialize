@@ -20,12 +20,13 @@ func sub() {
 
 	for {
 		msg, _ := receiver.RecvMessage(0) // frame len: 2
+
+		// unmarshal json
 		var s MbTcpSingleWriteReq
 		err := json.Unmarshal([]byte(msg[1]), &s) // frame 2
 		if err != nil {
 			fmt.Println(err) // unmarshal from json string failed
 		} else {
-			fmt.Println(msg[0])
 			fmt.Println(s)
 		}
 	}

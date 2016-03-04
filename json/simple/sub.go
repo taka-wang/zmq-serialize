@@ -20,6 +20,8 @@ func sub() {
 
 	for {
 		msg, _ := receiver.RecvMessage(0) // frame len: 2
+
+		// unmarshal json
 		var s MbTcpHeader
 		err := json.Unmarshal([]byte(msg[1]), &s) // frame 2
 		if err != nil {
