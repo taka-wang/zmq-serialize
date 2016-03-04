@@ -7,11 +7,13 @@ import (
 	"time"
 )
 
-type MbTcpHeader struct {
-	Ip   string `json:"ip"`
-	Port int    `json:"port"`
-	Id   int    `json:"id"`
-}
+var (
+	command = MbTcpHeader{
+		Ip:   "192.168.1.1",
+		Port: 503,
+		Id:   22,
+	}
+)
 
 func main() {
 	pub()
@@ -22,12 +24,6 @@ func pub() {
 	defer sender.Close()
 	sender.Connect("ipc:///tmp/dummy")
 
-	command := MbTcpHeader{
-		Ip:   "192.168.1.1",
-		Port: 503,
-		Id:   22,
-	}
-
 	// marshal to json string
 	cmd, err := json.Marshal(command)
 	if err != nil {
@@ -36,7 +32,7 @@ func pub() {
 
 	for {
 		sender.Send("mbtcp.once.write", zmq.SNDMORE)
-		sender.Send(string(cmd), 0)
+		sender.Send(string(cmd), 0) // byte arr to string
 		time.Sleep(time.Duration(1000) * time.Millisecond)
 	}
 }
