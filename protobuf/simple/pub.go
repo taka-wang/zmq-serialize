@@ -25,7 +25,7 @@ func pub() {
 
 	//test
 	cmd1, _ := json.Marshal(command)
-	fmt.Println(cmd1)
+	fmt.Println(string(cmd1))
 
 	cmd, err := proto.Marshal(command)
 	if err != nil {
