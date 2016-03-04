@@ -6,19 +6,22 @@
 
 `npm install protocol-buffers`
 
-#### @golang
+#### Golang
 
-```
+```bash
 go get -u github.com/golang/protobuf/proto
 go get -u github.com/golang/protobuf/protoc-gen-go
 
+# generate go code from proto v3
 protoc --plugin=protoc-gen-go  --go_out=. type.proto
 ```
 
-#### @protoc-c
+#### C
 
-```
-protoc-c --c_out=. type2.proto # code gen
+```bash
+# generate c code from proto v2
+protoc-c --c_out=. type2.proto
 ```
 
-@Note protoc-c keyword "register" !
+#### Warning
+***protoc-c will rename keyword "register" to "register_"***
