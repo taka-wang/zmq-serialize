@@ -2,7 +2,7 @@
 
 ## Setup
 
-#### @node.js package
+#### Node.js
 
 `npm install protocol-buffers`
 
