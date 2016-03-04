@@ -7,50 +7,50 @@
 #endif
 
 #include "type2.pb-c.h"
-void   main__mb_tcp_header__init
-                     (Main__MbTcpHeader         *message)
+void   mb_tcp_header__init
+                     (MbTcpHeader         *message)
 {
-  static Main__MbTcpHeader init_value = MAIN__MB_TCP_HEADER__INIT;
+  static MbTcpHeader init_value = MB_TCP_HEADER__INIT;
   *message = init_value;
 }
-size_t main__mb_tcp_header__get_packed_size
-                     (const Main__MbTcpHeader *message)
+size_t mb_tcp_header__get_packed_size
+                     (const MbTcpHeader *message)
 {
-  assert(message->base.descriptor == &main__mb_tcp_header__descriptor);
+  assert(message->base.descriptor == &mb_tcp_header__descriptor);
   return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
 }
-size_t main__mb_tcp_header__pack
-                     (const Main__MbTcpHeader *message,
+size_t mb_tcp_header__pack
+                     (const MbTcpHeader *message,
                       uint8_t       *out)
 {
-  assert(message->base.descriptor == &main__mb_tcp_header__descriptor);
+  assert(message->base.descriptor == &mb_tcp_header__descriptor);
   return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
 }
-size_t main__mb_tcp_header__pack_to_buffer
-                     (const Main__MbTcpHeader *message,
+size_t mb_tcp_header__pack_to_buffer
+                     (const MbTcpHeader *message,
                       ProtobufCBuffer *buffer)
 {
-  assert(message->base.descriptor == &main__mb_tcp_header__descriptor);
+  assert(message->base.descriptor == &mb_tcp_header__descriptor);
   return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
 }
-Main__MbTcpHeader *
-       main__mb_tcp_header__unpack
+MbTcpHeader *
+       mb_tcp_header__unpack
                      (ProtobufCAllocator  *allocator,
                       size_t               len,
                       const uint8_t       *data)
 {
-  return (Main__MbTcpHeader *)
-     protobuf_c_message_unpack (&main__mb_tcp_header__descriptor,
+  return (MbTcpHeader *)
+     protobuf_c_message_unpack (&mb_tcp_header__descriptor,
                                 allocator, len, data);
 }
-void   main__mb_tcp_header__free_unpacked
-                     (Main__MbTcpHeader *message,
+void   mb_tcp_header__free_unpacked
+                     (MbTcpHeader *message,
                       ProtobufCAllocator *allocator)
 {
-  assert(message->base.descriptor == &main__mb_tcp_header__descriptor);
+  assert(message->base.descriptor == &mb_tcp_header__descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
-static const ProtobufCFieldDescriptor main__mb_tcp_header__field_descriptors[3] =
+static const ProtobufCFieldDescriptor mb_tcp_header__field_descriptors[3] =
 {
   {
     "ip",
@@ -58,7 +58,7 @@ static const ProtobufCFieldDescriptor main__mb_tcp_header__field_descriptors[3] 
     PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_STRING,
     0,   /* quantifier_offset */
-    offsetof(Main__MbTcpHeader, ip),
+    offsetof(MbTcpHeader, ip),
     NULL,
     NULL,
     0,             /* flags */
@@ -70,7 +70,7 @@ static const ProtobufCFieldDescriptor main__mb_tcp_header__field_descriptors[3] 
     PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_UINT32,
     0,   /* quantifier_offset */
-    offsetof(Main__MbTcpHeader, port),
+    offsetof(MbTcpHeader, port),
     NULL,
     NULL,
     0,             /* flags */
@@ -82,35 +82,35 @@ static const ProtobufCFieldDescriptor main__mb_tcp_header__field_descriptors[3] 
     PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_UINT32,
     0,   /* quantifier_offset */
-    offsetof(Main__MbTcpHeader, id),
+    offsetof(MbTcpHeader, id),
     NULL,
     NULL,
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
 };
-static const unsigned main__mb_tcp_header__field_indices_by_name[] = {
+static const unsigned mb_tcp_header__field_indices_by_name[] = {
   2,   /* field[2] = id */
   0,   /* field[0] = ip */
   1,   /* field[1] = port */
 };
-static const ProtobufCIntRange main__mb_tcp_header__number_ranges[1 + 1] =
+static const ProtobufCIntRange mb_tcp_header__number_ranges[1 + 1] =
 {
   { 1, 0 },
   { 0, 3 }
 };
-const ProtobufCMessageDescriptor main__mb_tcp_header__descriptor =
+const ProtobufCMessageDescriptor mb_tcp_header__descriptor =
 {
   PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
-  "main.MbTcpHeader",
   "MbTcpHeader",
-  "Main__MbTcpHeader",
-  "main",
-  sizeof(Main__MbTcpHeader),
+  "MbTcpHeader",
+  "MbTcpHeader",
+  "",
+  sizeof(MbTcpHeader),
   3,
-  main__mb_tcp_header__field_descriptors,
-  main__mb_tcp_header__field_indices_by_name,
-  1,  main__mb_tcp_header__number_ranges,
-  (ProtobufCMessageInit) main__mb_tcp_header__init,
+  mb_tcp_header__field_descriptors,
+  mb_tcp_header__field_indices_by_name,
+  1,  mb_tcp_header__number_ranges,
+  (ProtobufCMessageInit) mb_tcp_header__init,
   NULL,NULL,NULL    /* reserved[123] */
 };

@@ -15,7 +15,7 @@ PROTOBUF_C__BEGIN_DECLS
 #endif
 
 
-typedef struct _Main__MbTcpHeader Main__MbTcpHeader;
+typedef struct _MbTcpHeader MbTcpHeader;
 
 
 /* --- enums --- */
@@ -23,41 +23,41 @@ typedef struct _Main__MbTcpHeader Main__MbTcpHeader;
 
 /* --- messages --- */
 
-struct  _Main__MbTcpHeader
+struct  _MbTcpHeader
 {
   ProtobufCMessage base;
   char *ip;
   uint32_t port;
   uint32_t id;
 };
-#define MAIN__MB_TCP_HEADER__INIT \
- { PROTOBUF_C_MESSAGE_INIT (&main__mb_tcp_header__descriptor) \
+#define MB_TCP_HEADER__INIT \
+ { PROTOBUF_C_MESSAGE_INIT (&mb_tcp_header__descriptor) \
     , NULL, 0, 0 }
 
 
-/* Main__MbTcpHeader methods */
-void   main__mb_tcp_header__init
-                     (Main__MbTcpHeader         *message);
-size_t main__mb_tcp_header__get_packed_size
-                     (const Main__MbTcpHeader   *message);
-size_t main__mb_tcp_header__pack
-                     (const Main__MbTcpHeader   *message,
+/* MbTcpHeader methods */
+void   mb_tcp_header__init
+                     (MbTcpHeader         *message);
+size_t mb_tcp_header__get_packed_size
+                     (const MbTcpHeader   *message);
+size_t mb_tcp_header__pack
+                     (const MbTcpHeader   *message,
                       uint8_t             *out);
-size_t main__mb_tcp_header__pack_to_buffer
-                     (const Main__MbTcpHeader   *message,
+size_t mb_tcp_header__pack_to_buffer
+                     (const MbTcpHeader   *message,
                       ProtobufCBuffer     *buffer);
-Main__MbTcpHeader *
-       main__mb_tcp_header__unpack
+MbTcpHeader *
+       mb_tcp_header__unpack
                      (ProtobufCAllocator  *allocator,
                       size_t               len,
                       const uint8_t       *data);
-void   main__mb_tcp_header__free_unpacked
-                     (Main__MbTcpHeader *message,
+void   mb_tcp_header__free_unpacked
+                     (MbTcpHeader *message,
                       ProtobufCAllocator *allocator);
 /* --- per-message closures --- */
 
-typedef void (*Main__MbTcpHeader_Closure)
-                 (const Main__MbTcpHeader *message,
+typedef void (*MbTcpHeader_Closure)
+                 (const MbTcpHeader *message,
                   void *closure_data);
 
 /* --- services --- */
@@ -65,7 +65,7 @@ typedef void (*Main__MbTcpHeader_Closure)
 
 /* --- descriptors --- */
 
-extern const ProtobufCMessageDescriptor main__mb_tcp_header__descriptor;
+extern const ProtobufCMessageDescriptor mb_tcp_header__descriptor;
 
 PROTOBUF_C__END_DECLS
 
