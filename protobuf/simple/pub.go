@@ -24,7 +24,7 @@ func pub() {
 	}
 
 	//test
-	cmd1, err1 := json.Marshal(command)
+	cmd1, _ := json.Marshal(command)
 	fmt.Println(cmd1)
 
 	cmd, err := proto.Marshal(command)
