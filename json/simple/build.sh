@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-rm pubc subc pub sub
+rm pub sub
 
 # build golang
 go build -o pub pub.go type.go
